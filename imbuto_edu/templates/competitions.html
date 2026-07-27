@@ -1,0 +1,321 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Competitions | Imbuto Edu</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/styles.css' %}">
+          <style>
+
+    .competitions-hero {
+
+        padding: 100px 8%;
+
+        text-align: center;
+
+        background: #f5f7fa;
+
+    }
+
+
+    .competitions-hero h1 {
+
+        font-size: 48px;
+
+        margin: 15px 0;
+
+    }
+
+
+    .competitions-section {
+
+        padding: 80px 8%;
+
+        background: #f5f7fa;
+
+    }
+
+
+    .competitions-grid {
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 25px;
+
+    }
+
+
+    .competition-card {
+
+        padding: 30px;
+
+        background: white;
+
+        border-radius: 14px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    }
+
+
+    .competition-icon {
+
+        font-size: 45px;
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>Imbuto Edu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="{% url 'home' %}">Home</a>
+
+        <a href="{% url 'schools_page' %}">Schools</a>
+
+        <a href="{% url 'top_schools' %}">Rankings</a>
+
+        <a href="{% url 'sports' %}">Sports</a>
+
+        <a href="{% url 'competitions' %}">Competitions</a>
+
+        <a href="#">Careers</a>
+
+    </nav>
+
+</header>
+
+
+<section class="competitions-hero">
+
+    <p class="eyebrow">
+
+        GO BEYOND THE CLASSROOM
+
+    </p>
+
+
+    <h1>
+
+        Competitions & Opportunities
+
+    </h1>
+
+
+    <p>
+
+        Discover opportunities to challenge yourself,
+        develop your talents and achieve excellence.
+
+    </p>
+
+</section>
+
+
+<section class="competitions-section">
+
+
+    <div class="section-heading">
+
+        <span class="section-label">
+
+            EXPLORE OPPORTUNITIES
+
+        </span>
+
+
+        <h2>
+
+            Find Your Challenge
+
+        </h2>
+
+
+        <p>
+
+            Explore different competitions and opportunities
+            for students across Rwanda.
+
+        </p>
+
+    </div>
+
+
+    <div class="competitions-grid">
+
+
+        <div class="competition-card">
+
+            <div class="competition-icon">
+
+                🗣️
+
+            </div>
+
+
+            <h3>
+
+                Debate
+
+            </h3>
+
+
+            <p>
+
+                Develop public speaking, critical thinking
+                and communication skills.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Debate →
+
+            </a>
+
+        </div>
+
+
+        <div class="competition-card">
+
+            <div class="competition-icon">
+
+                💻
+
+            </div>
+
+
+            <h3>
+
+                Coding
+
+            </h3>
+
+
+            <p>
+
+                Discover programming, technology and
+                innovation competitions.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Coding →
+
+            </a>
+
+        </div>
+
+
+        <div class="competition-card">
+
+            <div class="competition-icon">
+
+                🔬
+
+            </div>
+
+
+            <h3>
+
+                Science Fairs
+
+            </h3>
+
+
+            <p>
+
+                Showcase scientific ideas, research
+                and innovation.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Science →
+
+            </a>
+
+        </div>
+
+
+        <div class="competition-card">
+
+            <div class="competition-icon">
+
+                🧠
+
+            </div>
+
+
+            <h3>
+
+                Olympiads
+
+            </h3>
+
+
+            <p>
+
+                Challenge yourself in Mathematics,
+                Physics and Chemistry.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Olympiads →
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+
+        © 2026 Imbuto Edu — Plant Your Future
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

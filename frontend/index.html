@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Imbuto Edu | Plant Your Future</title>
+
+    <link rel="stylesheet"
+          href="css/styles.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- NAVIGATION -->
+<!-- ========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>Imbuto Edu</h2>
+
+        <span>Plant Your Future</span>
+
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="schools.html">Explore Schools</a></li>
+
+            <li><a href="sports.html">Sports Schools</a></li>
+
+            <li><a href="competitions.html">Competitions</a></li>
+
+            <li><a href="compare.html">Compare</a></li>
+
+            <li><a href="dashboard.html">Dashboard</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Discover Rwanda's Best Schools
+
+        </h1>
+
+        <p>
+
+            Find schools, compare performance, explore sports,
+            competitions, scholarships and educational opportunities.
+
+        </p>
+
+        <div class="search-box">
+
+            <input
+                   type="text"
+
+                   placeholder="Search for a school...">
+
+            <button>
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- STATISTICS -->
+<!-- ========================= -->
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <h2>500+</h2>
+
+        <p>Schools</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>30</h2>
+
+        <p>Districts</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>100+</h2>
+
+        <p>Competitions</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>10K+</h2>
+
+        <p>Students Reached</p>
+
+    </div>
+
+</section><!-- ========================= -->
+<h1>{{ message }}</h1>
+<!-- FEATURED SCHOOLS -->
+<!-- ========================= -->
+
+<section class="featured-schools">
+
+    <div class="section-title">
+
+        <h2>Featured Schools</h2>
+
+        <p>Explore some of Rwanda's top-performing schools.</p>
+
+    </div>
+
+    <div class="school-grid">
+
+        <div class="school-card">
+
+            {% for school in schools %}
+
+<div class="school-card">
+
+    <h3>{{ school.name }}</h3>
+
+    <p><strong>District:</strong> {{ school.district }}</p>
+
+    <p><strong>Province:</strong> {{ school.province }}</p>
+
+    <p><strong>Category:</strong> {{ school.category }}</p>
+
+    <p><strong>Type:</strong> {{ school.school_type }}</p>
+
+    <p><strong>Ownership:</strong> {{ school.ownership }}</p>
+
+    <p><strong>Fees:</strong> {{ school.school_fees }}</p>
+
+    <p>{{ school.description }}</p>
+
+</div>
+
+{% empty %}
+
+<div class="school-card">
+    <h3>No Schools Yet</h3>
+</div>
+
+{% endfor %}
+
+        </div>
+
+        <div class="school-card">
+
+            <h3>Lycée de Kigali</h3>
+
+            <p>Kigali</p>
+
+            <button>View Profile</button>
+
+        </div>
+
+        <div class="school-card">
+
+            <h3>College Saint André</h3>
+
+            <p>Kigali</p>
+
+            <button>View Profile</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SCHOOL CATEGORIES -->
+<!-- ========================= -->
+
+<section class="categories">
+
+    <div class="section-title">
+
+        <h2>School Categories</h2>
+
+        <p>Choose the category that fits your goals.</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+            <h3>Boarding Schools</h3>
+            <p>Find the best boarding schools across Rwanda.</p>
+        </div>
+
+        <div class="category-card">
+            <h3>Day Schools</h3>
+            <p>Explore excellent day schools near your location.</p>
+        </div>
+
+        <div class="category-card">
+            <h3>TVET</h3>
+            <p>Technical and vocational education opportunities.</p>
+        </div>
+
+        <div class="category-card">
+            <h3>STEM Schools</h3>
+            <p>Schools focusing on science and technology.</p>
+        </div>
+
+        <div class="category-card">
+            <h3>Sports Schools</h3>
+            <p>Schools with strong sports programs and talent development.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SPORTS PREVIEW -->
+<!-- ========================= -->
+
+<section class="sports-preview">
+
+    <div class="section-title">
+
+        <h2>Sports Excellence</h2>
+
+        <p>Discover schools that shine in sports.</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <h3>🏀 Basketball</h3>
+
+            <p>Top basketball schools and tournaments.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>⚽ Football</h3>
+
+            <p>Schools with successful football teams.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>🏐 Volleyball</h3>
+
+            <p>Explore volleyball champions across Rwanda.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>🏃 Athletics</h3>
+
+            <p>Track and field talent development.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- COMPETITIONS -->
+<!-- ========================= -->
+
+<section class="competitions">
+
+    <div class="section-title">
+
+        <h2>Competitions</h2>
+
+        <p>Discover opportunities beyond the classroom.</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <h3>Debate</h3>
+
+            <p>National and regional debate competitions.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>Coding</h3>
+
+            <p>Programming competitions for young innovators.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>Science Fair</h3>
+
+            <p>Showcase scientific ideas and research.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>Olympiads</h3>
+
+            <p>Mathematics, Physics and Chemistry competitions.</p>
+
+        </div>
+
+    </div>
+
+</section><!-- ========================= -->
+<!-- CAREERS & TVET -->
+<!-- ========================= -->
+
+<section class="careers">
+
+    <div class="section-title">
+
+        <h2>Careers & TVET</h2>
+
+        <p>Explore career paths, vocational education and future opportunities.</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <h3>Career Guidance</h3>
+
+            <p>Discover careers that match your interests and strengths.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>TVET Schools</h3>
+
+            <p>Find technical and vocational schools across Rwanda.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>Scholarships</h3>
+
+            <p>Stay updated with available scholarship opportunities.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- WHY CHOOSE IMBUTO EDU -->
+<!-- ========================= -->
+
+<section class="why-us">
+
+    <div class="section-title">
+
+        <h2>Why Choose Imbuto Edu?</h2>
+
+        <p>Your complete education guide in one place.</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <h3>Verified Information</h3>
+
+            <p>Reliable school profiles and educational resources.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>Easy Comparison</h3>
+
+            <p>Compare schools based on academics, sports and facilities.</p>
+
+        </div>
+
+        <div class="category-card">
+
+            <h3>One Platform</h3>
+
+            <p>Schools, sports, competitions, careers and opportunities together.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CALL TO ACTION -->
+<!-- ========================= -->
+
+<section class="cta">
+
+    <h2>Ready to Plant Your Future?</h2>
+
+    <p>Start exploring Rwanda's education opportunities today.</p>
+
+    <button>Explore Schools</button>
+
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>Imbuto Edu</h3>
+
+            <p>Plant Your Future</p>
+
+        </div>
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <p>Home</p>
+            <p>Schools</p>
+            <p>Sports</p>
+            <p>Competitions</p>
+
+        </div>
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>Email: info@imbutoedu.rw</p>
+            <p>Kigali, Rwanda</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+        © 2026 Imbuto Edu. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

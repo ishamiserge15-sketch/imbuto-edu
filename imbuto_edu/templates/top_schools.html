@@ -1,0 +1,341 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Top Schools | Imbuto Edu</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/styles.css' %}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- ========================= -->
+<!-- NAVIGATION -->
+<!-- ========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>Imbuto Edu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'schools_page' %}">
+
+                    Schools
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'top_schools' %}">
+
+                    Top Schools
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'sports' %}">Sports</a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'competitions' %}">Competitions</a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#">
+
+                    Careers & TVET
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- ========================= -->
+<!-- TOP SCHOOLS HERO -->
+<!-- ========================= -->
+
+<section class="ranking-hero">
+
+
+    <div class="ranking-hero-content">
+
+
+        <span class="section-label">
+
+            EXCELLENCE & ACHIEVEMENT
+
+        </span>
+
+
+        <h1>
+
+            Rwanda's Top Schools
+
+        </h1>
+
+
+        <p>
+
+            Discover schools recognized for academic excellence,
+            innovation and outstanding student achievement.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- RANKING SECTION -->
+<!-- ========================= -->
+
+<section class="ranking-section">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            SCHOOL RANKINGS
+
+        </span>
+
+
+        <h2>
+
+            Leading Schools in Rwanda
+
+        </h2>
+
+
+        <p>
+
+            Explore schools that continue to demonstrate excellence
+            in education and student development.
+
+        </p>
+
+
+    </div>
+
+<div class="ranking-grid">
+
+    {% for school in schools %}
+
+    <div class="ranking-card">
+
+        <div class="rank-number">
+
+            #{{ forloop.counter }}
+
+        </div>
+
+
+        <div class="ranking-content">
+
+            <h3>
+
+                {{ school.name }}
+
+            </h3>
+
+
+            <p>
+
+                {{ school.district }}, Rwanda
+
+            </p>
+
+
+            <span>
+
+                Academic Excellence
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+    {% empty %}
+
+    <p>
+
+        No schools available yet.
+
+    </p>
+
+
+    {% endfor %}
+
+</div>
+
+   </section>
+
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>
+
+                Imbuto Edu
+
+            </h3>
+
+
+            <p>
+
+                Plant Your Future
+
+            </p>
+
+
+        </div>
+
+
+        <div>
+
+            <h4>
+
+                Quick Links
+
+            </h4>
+
+
+            <p>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <a href="{% url 'schools_page' %}">
+
+                    Schools
+
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+        <div>
+
+            <h4>
+
+                Contact
+
+            </h4>
+
+
+            <p>
+
+                Kigali, Rwanda
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <hr>
+
+
+    <p class="copyright">
+
+        © 2026 Imbuto Edu. All Rights Reserved.
+
+    </p>
+
+
+</footer>
+
+
+</body>
+
+</html>

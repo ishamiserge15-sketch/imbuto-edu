@@ -1,0 +1,1205 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Imbuto Edu | Plant Your Future</title>
+
+
+    <link rel="stylesheet"
+          href="{% static 'css/styles.css' %}">
+
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- ========================= -->
+<!-- NAVIGATION -->
+<!-- ========================= -->
+
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+        <h2>
+
+            Imbuto Edu
+
+        </h2>
+
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+
+            <li>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'schools_page' %}">
+
+                    Schools
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+    <a href="{% url 'top_schools' %}">
+
+        Top Schools
+
+    </a>
+
+</li>
+
+
+            <li>
+
+                <a href="{% url 'sports' %}">Sports</a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'competitions' %}">Competitions</a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{% url 'careers' %}">
+    Careers & TVET
+</a>
+
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+</header>
+
+
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
+
+
+<section class="hero">
+
+
+    <div class="hero-content">
+
+
+        <h1>
+
+            Plant Your Future
+
+        </h1>
+
+
+        <p>
+
+            Discover schools, opportunities and your future.
+
+        </p>
+
+
+        <form
+
+            class="search-box"
+
+            method="GET"
+
+            action="{% url 'schools_page' %}"
+
+        >
+
+
+            <input
+
+                type="text"
+
+                name="search"
+
+                placeholder="Search schools..."
+
+            >
+
+
+            <button
+
+                type="submit"
+
+            >
+
+                Search
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</section>
+<!-- ========================= -->
+<!-- STATISTICS -->
+<!-- ========================= -->
+
+<section class="stats">
+
+
+    <div class="stat-card">
+
+        <h2>500+</h2>
+
+        <p>
+
+            Schools
+
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <h2>30</h2>
+
+        <p>
+
+            Districts
+
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <h2>100+</h2>
+
+        <p>
+
+            Competitions
+
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <h2>10K+</h2>
+
+        <p>
+
+            Students Reached
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- FEATURED SCHOOLS -->
+<!-- ========================= -->
+
+
+<section class="featured-schools">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            EXPLORE EDUCATION
+
+        </span>
+
+
+        <h2>
+
+            Discover Great Schools
+
+        </h2>
+
+
+        <p>
+
+            Explore schools across Rwanda and find the environment
+            that matches your goals and dreams.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="school-grid">
+
+
+        {% for school in schools %}
+
+
+        <article class="school-card">
+
+
+            <div class="school-card-top">
+
+
+                <span class="school-badge">
+
+                    {{ school.school_type }}
+
+                </span>
+
+
+            </div>
+
+
+            <div class="school-card-content">
+
+
+                <h3>
+
+                    {{ school.name }}
+
+                </h3>
+
+
+                <p class="school-location">
+
+                    📍 {{ school.district }}, Rwanda
+
+                </p>
+
+
+                <p class="school-description">
+
+                    {{ school.description|truncatewords:25 }}
+
+                </p>
+
+
+                <div class="school-card-footer">
+
+
+                    <span>
+
+                        {{ school.ownership }}
+
+                    </span>
+
+
+                    <a href="{% url 'school_detail' school.id %}">
+
+                        View Profile →
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+        {% empty %}
+
+
+        <div class="empty-schools">
+
+
+            <h3>
+
+                No schools found
+
+            </h3>
+
+
+            <p>
+
+                School information will appear here soon.
+
+            </p>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
+<!-- ========================= -->
+<!-- SCHOOL CATEGORIES -->
+<!-- ========================= -->
+
+<section class="categories">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            FIND YOUR PATH
+
+        </span>
+
+
+        <h2>
+
+            Explore School Categories
+
+        </h2>
+
+
+        <p>
+
+            Find the type of education that matches your goals.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Boarding Schools
+
+            </h3>
+
+
+            <p>
+
+                Discover boarding schools across Rwanda.
+
+            </p>
+
+
+            <a href="{% url 'schools_page' %}">
+
+                Explore Schools →
+
+            </a>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Day Schools
+
+            </h3>
+
+
+            <p>
+
+                Find excellent day schools near you.
+
+            </p>
+
+
+            <a href="{% url 'schools_page' %}">
+
+                Explore Schools →
+
+            </a>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                TVET
+
+            </h3>
+
+
+            <p>
+
+                Explore technical and vocational education.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore TVET →
+
+            </a>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                STEM Schools
+
+            </h3>
+
+
+            <p>
+
+                Discover science, technology and innovation opportunities.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore STEM →
+
+            </a>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Sports Schools
+
+            </h3>
+
+
+            <p>
+
+                Discover schools developing talented young athletes.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Sports →
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- SPORTS PREVIEW -->
+<!-- ========================= -->
+
+
+<section class="sports-preview">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            TALENT & EXCELLENCE
+
+        </span>
+
+
+        <h2>
+
+            Sports Excellence
+
+        </h2>
+
+
+        <p>
+
+            Discover schools that shine in sports.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                🏀 Basketball
+
+            </h3>
+
+
+            <p>
+
+                Discover top basketball schools and tournaments.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                ⚽ Football
+
+            </h3>
+
+
+            <p>
+
+                Explore schools with successful football programs.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                🏐 Volleyball
+
+            </h3>
+
+
+            <p>
+
+                Explore volleyball talent across Rwanda.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                🏃 Athletics
+
+            </h3>
+
+
+            <p>
+
+                Discover track and field opportunities.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- COMPETITIONS -->
+<!-- ========================= -->
+
+
+<section class="competitions">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            GO BEYOND THE CLASSROOM
+
+        </span>
+
+
+        <h2>
+
+            Competitions & Opportunities
+
+        </h2>
+
+
+        <p>
+
+            Discover opportunities to challenge yourself and grow.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Debate
+
+            </h3>
+
+
+            <p>
+
+                Discover debate competitions and public speaking opportunities.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Coding
+
+            </h3>
+
+
+            <p>
+
+                Explore programming and technology competitions.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Science Fairs
+
+            </h3>
+
+
+            <p>
+
+                Showcase scientific ideas and research.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Olympiads
+
+            </h3>
+
+
+            <p>
+
+                Mathematics, Physics and Chemistry competitions.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- CAREERS & TVET -->
+<!-- ========================= -->
+
+
+<section class="careers">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            BUILD YOUR FUTURE
+
+        </span>
+
+
+        <h2>
+
+            Careers & TVET
+
+        </h2>
+
+
+        <p>
+
+            Explore career paths, technical education and future opportunities.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Career Guidance
+
+            </h3>
+
+
+            <p>
+
+                Discover careers that match your interests and strengths.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                TVET Schools
+
+            </h3>
+
+
+            <p>
+
+                Find technical and vocational education opportunities.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Scholarships
+
+            </h3>
+
+
+            <p>
+
+                Discover educational funding and scholarship opportunities.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+<!-- ========================= -->
+<!-- WHY CHOOSE IMBUTO EDU -->
+<!-- ========================= -->
+
+<section class="why-us">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+
+            WHY IMBUTO EDU
+
+        </span>
+
+
+        <h2>
+
+            Your Education Journey Starts Here
+
+        </h2>
+
+
+        <p>
+
+            Everything you need to make better education decisions
+            in one trusted platform.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Verified Information
+
+            </h3>
+
+
+            <p>
+
+                Explore organized school information and educational opportunities.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                Easy Comparison
+
+            </h3>
+
+
+            <p>
+
+                Compare schools based on important information and your goals.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="category-card">
+
+
+            <h3>
+
+                One Platform
+
+            </h3>
+
+
+            <p>
+
+                Schools, sports, competitions, careers and opportunities together.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- CALL TO ACTION -->
+<!-- ========================= -->
+
+
+<section class="cta">
+
+
+    <div class="cta-content">
+
+
+        <h2>
+
+            Ready to Plant Your Future?
+
+        </h2>
+
+
+        <p>
+
+            Start exploring Rwanda's education opportunities today.
+
+        </p>
+
+
+        <a
+
+            href="{% url 'schools_page' %}"
+
+            class="cta-button"
+
+        >
+
+            Explore Schools →
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+
+<footer>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+
+            <h3>
+
+                Imbuto Edu
+
+            </h3>
+
+
+            <p>
+
+                Plant Your Future
+
+            </p>
+
+
+            <p>
+
+                Helping students and families discover better education opportunities.
+
+            </p>
+
+
+        </div>
+
+
+        <div>
+
+
+            <h4>
+
+                Quick Links
+
+            </h4>
+
+
+            <p>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <a href="{% url 'schools_page' %}">
+
+                    Schools
+
+                </a>
+
+            </p>
+
+
+            <p>
+
+                Top Schools
+
+            </p>
+
+
+            <p>
+
+                Competitions
+
+            </p>
+
+
+        </div>
+
+
+        <div>
+
+
+            <h4>
+
+                Contact
+
+            </h4>
+
+
+            <p>
+
+                Email: info@imbutoedu.rw
+
+            </p>
+
+
+            <p>
+
+                Kigali, Rwanda
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <hr>
+
+
+    <p class="copyright">
+
+
+        © 2026 Imbuto Edu. All Rights Reserved.
+
+
+    </p>
+
+
+</footer>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,516 @@
+/* ====================================
+   IMBUTO EDU
+   GLOBAL STYLES
+==================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f5f7fa;
+
+    color:#333;
+
+    line-height:1.6;
+
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#0B3D91;
+
+    color:white;
+
+    padding:18px 8%;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo h2{
+
+    font-size:30px;
+
+}
+
+.logo span{
+
+    font-size:13px;
+
+    color:#FFD54F;
+
+}
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+}
+
+nav ul li{
+
+    margin-left:30px;
+
+}
+
+nav ul li a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+    color:#FFD54F;
+
+}
+
+/* ===============================
+   HERO
+================================ */
+
+.hero{
+
+    min-height:90vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:linear-gradient(rgba(11,61,145,.75),
+    rgba(11,61,145,.75)),
+    url("../images/banners/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+    padding:50px;
+
+}
+
+.hero-content{
+
+    max-width:800px;
+
+}
+
+.hero h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:20px;
+
+    margin-bottom:35px;
+
+}
+
+/* ===============================
+   SEARCH BOX
+================================ */
+
+.search-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.search-box input{
+
+    width:450px;
+
+    max-width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:8px 0 0 8px;
+
+    font-size:17px;
+
+}
+
+.search-box button{
+
+    padding:16px 30px;
+
+    border:none;
+
+    background:#FFD54F;
+
+    color:#0B3D91;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    border-radius:0 8px 8px 0;
+
+    transition:.3s;
+
+}
+
+.search-box button:hover{
+
+    background:white;
+
+}/* ====================================
+   STATISTICS
+==================================== */
+
+.stats{
+
+    width:90%;
+
+    margin:60px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    text-align:center;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.stat-card h2{
+
+    color:#0B3D91;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    font-size:18px;
+
+    color:#555;
+
+}
+
+/* ====================================
+   SECTION TITLES
+==================================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin:70px 0 40px;
+
+}
+
+.section-title h2{
+
+    font-size:40px;
+
+    color:#0B3D91;
+
+    margin-bottom:10px;
+
+}
+
+.section-title p{
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+/* ====================================
+   SCHOOL GRID
+==================================== */
+
+.school-grid{
+
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.school-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.school-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.school-card h3{
+
+    color:#0B3D91;
+
+    margin-bottom:15px;
+
+}
+
+.school-card button{
+
+    margin-top:20px;
+
+    background:#0B3D91;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.school-card button:hover{
+
+    background:#FFD54F;
+
+    color:#0B3D91;
+
+}
+
+/* ====================================
+   CATEGORY GRID
+==================================== */
+
+.category-grid{
+
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.category-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.category-card:hover{
+
+    transform:scale(1.05);
+
+}
+
+.category-card h3{
+
+    color:#0B3D91;
+
+    margin-bottom:15px;
+
+}
+
+.category-card p{
+
+    color:#666;
+
+}/* =========================
+   PART 3 - IMBUTO EDU ADVANCED FEATURES
+   (Continue from Part 2 only)
+========================= */
+
+/* Navigation improvements */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #1e3a8a;
+}
+
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #cbd5e1;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url("hero.jpg") center/cover no-repeat;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* Forms (login / register support) */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background: #0f172a;
+}/* MOBILE NAV ACTIVE STATE */
+nav ul.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #0B3D91;
+    padding: 20px;
+    border-radius: 10px;
+}

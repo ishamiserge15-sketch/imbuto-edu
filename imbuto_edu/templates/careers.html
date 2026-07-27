@@ -1,0 +1,338 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Careers & TVET | Imbuto Edu</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/styles.css' %}">
+          <style>
+
+.careers-hero {
+
+    padding: 100px 8%;
+
+    text-align: center;
+
+    background: #f5f7fa;
+
+}
+
+.careers-hero h1 {
+
+    font-size: 48px;
+
+    margin: 15px 0;
+
+}
+
+.careers-section {
+
+    padding: 80px 8%;
+
+    background: #f5f7fa;
+
+}
+
+.careers-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+.career-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.career-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+}
+
+@media (max-width:900px){
+
+    .careers-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .careers-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>Imbuto Edu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="{% url 'home' %}">Home</a>
+
+        <a href="{% url 'schools_page' %}">Schools</a>
+
+        <a href="{% url 'top_schools' %}">Rankings</a>
+
+        <a href="{% url 'sports' %}">Sports</a>
+
+        <a href="{% url 'competitions' %}">Competitions</a>
+
+        <a href="{% url 'careers' %}">Careers & TVET</a>
+
+    </nav>
+
+</header>
+
+
+<section class="careers-hero">
+
+    <p class="eyebrow">
+
+        BUILD YOUR FUTURE
+
+    </p>
+
+
+    <h1>
+
+        Careers & TVET
+
+    </h1>
+
+
+    <p>
+
+        Explore career paths, technical education
+        and opportunities for your future.
+
+    </p>
+
+</section>
+
+
+<section class="careers-section">
+
+
+    <div class="section-heading">
+
+        <span class="section-label">
+
+            EXPLORE YOUR FUTURE
+
+        </span>
+
+
+        <h2>
+
+            Find Your Path
+
+        </h2>
+
+
+        <p>
+
+            Discover opportunities that can help you
+            build the future you want.
+
+        </p>
+
+    </div>
+
+
+    <div class="careers-grid">
+
+
+        <div class="career-card">
+
+            <div class="career-icon">
+
+                🎯
+
+            </div>
+
+
+            <h3>
+
+                Career Guidance
+
+            </h3>
+
+
+            <p>
+
+                Discover careers that match your interests,
+                strengths and goals.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Careers →
+
+            </a>
+
+        </div>
+
+
+        <div class="career-card">
+
+            <div class="career-icon">
+
+                🛠️
+
+            </div>
+
+
+            <h3>
+
+                TVET Schools
+
+            </h3>
+
+
+            <p>
+
+                Find technical and vocational education
+                opportunities across Rwanda.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore TVET →
+
+            </a>
+
+        </div>
+
+
+        <div class="career-card">
+
+            <div class="career-icon">
+
+                🎓
+
+            </div>
+
+
+            <h3>
+
+                Scholarships
+
+            </h3>
+
+
+            <p>
+
+                Discover educational funding and scholarship
+                opportunities.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Scholarships →
+
+            </a>
+
+        </div>
+
+
+        <div class="career-card">
+
+            <div class="career-icon">
+
+                🚀
+
+            </div>
+
+
+            <h3>
+
+                Future Opportunities
+
+            </h3>
+
+
+            <p>
+
+                Explore opportunities that can help you
+                grow and achieve your ambitions.
+
+            </p>
+
+
+            <a href="#">
+
+                Explore Opportunities →
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+
+        © 2026 Imbuto Edu — Plant Your Future
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

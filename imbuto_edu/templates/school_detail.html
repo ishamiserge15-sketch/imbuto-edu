@@ -1,0 +1,244 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ school.name }} | Imbuto Edu</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/styles.css' %}">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>Imbuto Edu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="{% url 'home' %}">
+
+    Home
+
+</a>
+
+        <a href="{% url 'schools_page' %}">
+
+    Schools
+
+</a>
+
+        <a href="{% url 'top_schools' %}">
+
+    Rankings
+
+</a>
+
+        <a href="{% url 'sports' %}">Sports</a>
+
+        <a href="{% url 'competitions' %}">Competitions</a>
+
+        <a href="#">Careers</a>
+
+    </nav>
+
+</header>
+
+
+<section class="profile-hero">
+
+    <div class="profile-hero-content">
+
+        <span class="school-badge">
+
+            {{ school.school_type }}
+
+        </span>
+
+
+        <h1>
+
+            {{ school.name }}
+
+        </h1>
+
+
+        <p>
+
+            📍 {{ school.district }}, {{ school.province }}, Rwanda
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="school-profile">
+
+
+    <section class="profile-main">
+
+
+        <h2>
+
+            About {{ school.name }}
+
+        </h2>
+
+
+        <p>
+
+            {{ school.description }}
+
+        </p>
+
+
+    </section>
+
+
+    <aside class="profile-info">
+
+
+        <h2>
+
+            School Information
+
+        </h2>
+
+
+        <div class="info-row">
+
+            <strong>District</strong>
+
+            <span>{{ school.district }}</span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <strong>Province</strong>
+
+            <span>{{ school.province }}</span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <strong>Category</strong>
+
+            <span>{{ school.category }}</span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <strong>School Type</strong>
+
+            <span>{{ school.school_type }}</span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <strong>Ownership</strong>
+
+            <span>{{ school.ownership }}</span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <strong>School Fees</strong>
+
+            <span>{{ school.school_fees }}</span>
+
+        </div>
+
+
+    </aside>
+
+
+</main>
+
+
+<section class="contact-school">
+
+
+    <h2>
+
+        Contact {{ school.name }}
+
+    </h2>
+
+
+    <p>
+
+        📧 {{ school.email }}
+
+    </p>
+
+
+    <p>
+
+        📞 {{ school.phone }}
+
+    </p>
+
+
+    {% if school.website %}
+
+    <p>
+
+        🌐
+
+        <a href="{{ school.website }}">
+
+            Visit School Website
+
+        </a>
+
+    </p>
+
+    {% endif %}
+
+
+</section>
+
+
+<footer>
+
+    <p>
+
+        © 2026 Imbuto Edu — Plant Your Future
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
