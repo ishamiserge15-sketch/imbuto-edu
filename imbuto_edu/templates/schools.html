@@ -1,69 +1,24 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Explore Schools | Imbuto Edu
+{% endblock %}
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Explore Schools | Imbuto Edu</title>
-
-    <link rel="stylesheet"
-          href="{% static 'css/styles.css' %}">
-
-</head>
-
-<body>
-
-<header class="navbar">
-
-    <div class="logo">
-
-        <h2>Imbuto Edu</h2>
-
-    </div>
-
-    <nav>
-
-        <a href="{% url 'home' %}">Home</a>
-
-     <a href="{% url 'schools_page' %}">Schools</a>
-
-        <a href="{% url 'top_schools' %}">Rankings</a>
-
-        <a href="{% url 'sports' %}">Sports</a>
-
-        <a href="{% url 'competitions' %}">Competitions</a>
-
-        <a href="#">Careers</a>
-
-    </nav>
-
-</header>
-
+{% block content %}
 
 <section class="explore-header">
 
     <p class="eyebrow">
-
         EXPLORE EDUCATION
-
     </p>
 
     <h1>
-
         Find the Right School
-
     </h1>
 
     <p>
-
         Search and explore schools across Rwanda.
-
     </p>
 
 </section>
@@ -73,100 +28,91 @@
 
     <form method="GET">
 
+
+        <!-- SEARCH -->
+
         <input
-
             type="text"
-
             name="search"
-
+            value="{{ search }}"
             placeholder="Search school name..."
-
         >
 
+
+        <!-- DISTRICT -->
 
         <select name="district">
 
             <option value="">
-
                 All Districts
-
             </option>
 
-            <option value="Gasabo">
+            {% for item in districts %}
 
-                Gasabo
+                <option
+                    value="{{ item }}"
+                    {% if district == item %}
+                        selected
+                    {% endif %}
+                >
 
-            </option>
+                    {{ item }}
 
-            <option value="Nyarugenge">
+                </option>
 
-                Nyarugenge
-
-            </option>
-
-            <option value="Kicukiro">
-
-                Kicukiro
-
-            </option>
+            {% endfor %}
 
         </select>
 
+
+        <!-- SCHOOL TYPE -->
 
         <select name="school_type">
 
             <option value="">
-
                 All School Types
-
             </option>
 
-            <option value="Boarding">
+            {% for item in school_types %}
 
-                Boarding
+                <option
+                    value="{{ item }}"
+                    {% if school_type == item %}
+                        selected
+                    {% endif %}
+                >
 
-            </option>
+                    {{ item }}
 
-            <option value="Day">
+                </option>
 
-                Day
-
-            </option>
-
-            <option value="Mixed">
-
-                Mixed
-
-            </option>
+            {% endfor %}
 
         </select>
 
 
+        <!-- OWNERSHIP -->
+
         <select name="ownership">
 
             <option value="">
-
                 All Ownership
-
             </option>
 
-            <option value="Government">
+            {% for item in ownerships %}
 
-                Government
+                <option
+                    value="{{ item }}"
+                    {% if ownership == item %}
+                        selected
+                    {% endif %}
+                >
 
-            </option>
+                    {{ item }}
 
-            <option value="Private">
+                </option>
 
-                Private
-
-            </option>
-
-            <option value="Faith-Based">
-
-                Faith-Based
-
-            </option>
+            {% endfor %}
 
         </select>
 
@@ -183,69 +129,116 @@
 
 
 <section class="explore-schools">
+    <p class="compare-instruction">
 
-    <div class="school-grid">
+    Select up to <strong>2 schools</strong> to compare.
+
+</p>
+
+    <form method="GET" action="{% url 'compare_schools' %}">
+
+        <div class="school-grid">
 
 
         {% for school in schools %}
 
 
-        <div class="school-card">
+        <article class="school-card">
 
 
-            <span class="school-badge">
+            {% if school.image %}
 
-                {{ school.school_type }}
+                <img
+                    src="{{ school.image.url }}"
+                    alt="{{ school.name }}"
+                    class="school-card-image"
+                >
 
-            </span>
-
-
-            <h3>
-
-                {{ school.name }}
-
-            </h3>
+            {% endif %}
 
 
-            <p>
-
-                📍 {{ school.district }}, {{ school.province }}
-
-            </p>
+            <div class="school-card-content">
 
 
-            <p>
+                <span class="school-badge">
 
-                {{ school.description|truncatewords:25 }}
+                    {{ school.school_type }}
 
-            </p>
-
-
-            <a href="{% url 'school_detail' school.id %}">
-
-                View Profile →
-
-            </a>
+                </span>
 
 
-        </div>
+                <h3>
+
+                    {{ school.name }}
+
+                </h3>
+
+
+                <p class="school-location">
+
+                    📍 {{ school.district }},
+                    {{ school.province }}
+
+                </p>
+
+
+                <p class="school-description">
+
+                    {{ school.description|truncatewords:25 }}
+
+                </p>
+
+
+                <div class="school-card-footer">
+
+
+                    <span>
+
+                        {{ school.ownership }}
+
+                    </span>
+                    <label class="compare-option">
+
+    <input
+        type="checkbox"
+        name="compare"
+        value="{{ school.id }}"
+    >
+
+    Compare
+
+</label>
+
+
+                    <a
+                        href="{% url 'school_detail' school.id %}"
+                    >
+
+                        View Profile →
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
 
 
         {% empty %}
 
 
-        <div class="school-card">
+        <div class="empty-schools">
 
             <h3>
-
                 No schools found
-
             </h3>
 
             <p>
-
                 Try changing your search filters.
-
             </p>
 
         </div>
@@ -254,22 +247,24 @@
         {% endfor %}
 
 
-    </div>
+            </div>
+
+
+        <div class="compare-action">
+
+            <button
+                type="submit"
+                class="cta-button"
+            >
+
+                Compare Selected Schools
+
+            </button>
+
+        </div>
+
+    </form>
 
 </section>
 
-
-<footer>
-
-    <p>
-
-        © 2026 Imbuto Edu — Plant Your Future
-
-    </p>
-
-</footer>
-
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,89 +1,43 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block title %}
+{{ school.name }} | Imbuto Edu
+{% endblock %}
 
-<html lang="en">
+{% block content %}
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>{{ school.name }} | Imbuto Edu</title>
-
-    <link rel="stylesheet"
-          href="{% static 'css/styles.css' %}">
-
-</head>
-
-
-<body>
-
-
-<header class="navbar">
-
-    <div class="logo">
-
-        <h2>Imbuto Edu</h2>
-
-    </div>
-
-
-    <nav>
-
-        <a href="{% url 'home' %}">
-
-    Home
-
-</a>
-
-        <a href="{% url 'schools_page' %}">
-
-    Schools
-
-</a>
-
-        <a href="{% url 'top_schools' %}">
-
-    Rankings
-
-</a>
-
-        <a href="{% url 'sports' %}">Sports</a>
-
-        <a href="{% url 'competitions' %}">Competitions</a>
-
-        <a href="#">Careers</a>
-
-    </nav>
-
-</header>
-
+<!-- ========================= -->
+<!-- SCHOOL PROFILE HERO -->
+<!-- ========================= -->
 
 <section class="profile-hero">
+
+    {% if school.image %}
+
+        <img
+            src="{{ school.image.url }}"
+            alt="{{ school.name }}"
+            class="profile-school-image"
+        >
+
+    {% endif %}
+
 
     <div class="profile-hero-content">
 
         <span class="school-badge">
-
             {{ school.school_type }}
-
         </span>
 
-
         <h1>
-
             {{ school.name }}
-
         </h1>
 
-
         <p>
-
-            📍 {{ school.district }}, {{ school.province }}, Rwanda
-
+            📍 {{ school.district }},
+            {{ school.province }},
+            Rwanda
         </p>
 
     </div>
@@ -91,31 +45,82 @@
 </section>
 
 
+<!-- ========================= -->
+<!-- SCHOOL PROFILE -->
+<!-- ========================= -->
+
 <main class="school-profile">
 
 
+    <!-- ABOUT SCHOOL -->
+
     <section class="profile-main">
 
+    <h2>
+        About {{ school.name }}
+    </h2>
 
-        <h2>
-
-            About {{ school.name }}
-
-        </h2>
-
-
-        <p>
-
-            {{ school.description }}
-
-        </p>
+    <p>
+        {{ school.description }}
+    </p>
 
 
-    </section>
+    {% if school.facilities %}
 
+        <div class="profile-detail-section">
+
+            <h2>
+                🏫 Facilities
+            </h2>
+
+            <p>
+                {{ school.facilities }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    {% if school.subjects %}
+
+        <div class="profile-detail-section">
+
+            <h2>
+                📚 Subjects
+            </h2>
+
+            <p>
+                {{ school.subjects }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    {% if school.academic_performance %}
+
+        <div class="profile-detail-section">
+
+            <h2>
+                📈 Academic Performance
+            </h2>
+
+            <p>
+                {{ school.academic_performance }}
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+
+    <!-- SCHOOL INFORMATION -->
 
     <aside class="profile-info">
-
 
         <h2>
 
@@ -177,15 +182,273 @@
 
         </div>
 
-
     </aside>
 
 
 </main>
+<!-- ==========================================
+     SCHOOL FACILITIES
+========================================== -->
 
+<section class="school-facilities">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            SCHOOL FACILITIES
+        </span>
+
+        <h2>
+            Facilities at {{ school.name }}
+        </h2>
+
+        <p>
+            Explore the facilities and learning resources
+            available at this school.
+        </p>
+
+    </div>
+
+
+    {% if school.facilities %}
+
+        <div class="facilities-content">
+
+            <p>
+                {{ school.facilities|linebreaks }}
+            </p>
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-schools">
+
+            <h3>
+                Facilities information coming soon
+            </h3>
+
+            <p>
+                Information about laboratories, libraries,
+                ICT facilities, sports facilities and other
+                school resources will be added later.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+<!-- ==========================================
+     SCHOOL SPORTS
+========================================== -->
+
+<section class="school-sports">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            SPORTS & TALENT
+        </span>
+
+        <h2>
+            Sports at {{ school.name }}
+        </h2>
+
+        <p>
+            Explore the sports and athletic opportunities
+            available at this school.
+        </p>
+
+    </div>
+
+
+    {% if school.sports.exists %}
+
+        <div class="sports-grid">
+
+            {% for school_sport in school.sports.all %}
+
+                <article class="sport-card">
+
+                    <h3>
+                        {{ school_sport.sport.name }}
+                    </h3>
+
+
+                    {% if school_sport.description %}
+
+                        <p>
+                            {{ school_sport.description }}
+                        </p>
+
+                    {% endif %}
+
+
+                    {% if school_sport.achievement %}
+
+                        <p>
+
+                            <strong>
+                                Achievement:
+                            </strong>
+
+                            {{ school_sport.achievement }}
+
+                        </p>
+
+                    {% endif %}
+
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-schools">
+
+            <h3>
+                Sports information coming soon
+            </h3>
+
+            <p>
+                Sports opportunities for this school
+                will be added as information is collected.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+<!-- ==========================================
+     SCHOOL COMPETITIONS
+========================================== -->
+
+<section class="school-competitions">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            COMPETITIONS & ACHIEVEMENTS
+        </span>
+
+        <h2>
+            Competition Achievements
+        </h2>
+
+        <p>
+            Explore competitions and achievements
+            associated with {{ school.name }}.
+        </p>
+
+    </div>
+
+
+    {% if school.competitions.exists %}
+
+        <div class="competition-grid">
+
+            {% for school_competition in school.competitions.all %}
+
+                <article class="competition-card">
+
+                    <span class="school-badge">
+
+                        {{ school_competition.competition.name }}
+
+                    </span>
+
+
+                    {% if school_competition.year %}
+
+                        <p>
+
+                            <strong>
+                                Year:
+                            </strong>
+
+                            {{ school_competition.year }}
+
+                        </p>
+
+                    {% endif %}
+
+
+                    {% if school_competition.position %}
+
+                        <p>
+
+                            <strong>
+                                Position:
+                            </strong>
+
+                            {{ school_competition.position }}
+
+                        </p>
+
+                    {% endif %}
+
+
+                    {% if school_competition.achievement %}
+
+                        <p>
+
+                            <strong>
+                                Achievement:
+                            </strong>
+
+                            {{ school_competition.achievement }}
+
+                        </p>
+
+                    {% endif %}
+
+
+                    {% if school_competition.description %}
+
+                        <p>
+
+                            {{ school_competition.description }}
+
+                        </p>
+
+                    {% endif %}
+
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+        <div class="empty-schools">
+
+            <h3>
+                Competition information coming soon
+            </h3>
+
+            <p>
+                Competition participation and achievements
+                will appear here as information is collected.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+<!-- ========================= -->
+<!-- CONTACT SCHOOL -->
+<!-- ========================= -->
 
 <section class="contact-school">
-
 
     <h2>
 
@@ -194,51 +457,78 @@
     </h2>
 
 
-    <p>
+    {% if school.email %}
 
-        📧 {{ school.email }}
+        <p>
 
-    </p>
+            📧
 
+            <a href="mailto:{{ school.email }}">
 
-    <p>
+                {{ school.email }}
 
-        📞 {{ school.phone }}
+            </a>
 
-    </p>
-
-
-    {% if school.website %}
-
-    <p>
-
-        🌐
-
-        <a href="{{ school.website }}">
-
-            Visit School Website
-
-        </a>
-
-    </p>
+        </p>
 
     {% endif %}
 
 
+    {% if school.phone %}
+
+        <p>
+
+            📞
+
+            <a href="tel:{{ school.phone }}">
+
+                {{ school.phone }}
+
+            </a>
+
+        </p>
+
+    {% endif %}
+
+
+    {% if school.website %}
+
+        <p>
+
+            🌐
+
+            <a
+                href="{{ school.website }}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                Visit School Website
+
+            </a>
+
+        </p>
+
+    {% endif %}
+
 </section>
 
 
-<footer>
+<!-- ========================= -->
+<!-- BACK TO SCHOOLS -->
+<!-- ========================= -->
 
-    <p>
+<div class="profile-actions">
 
-        © 2026 Imbuto Edu — Plant Your Future
+    <a
+        href="{% url 'schools_page' %}"
+        class="cta-button"
+    >
 
-    </p>
+        ← Back to Schools
 
-</footer>
+    </a>
 
+</div>
 
-</body>
-
-</html>
+{% endblock %}

@@ -1,303 +1,245 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Competitions | Imbuto Edu
+{% endblock %}
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Competitions | Imbuto Edu</title>
-
-    <link rel="stylesheet"
-          href="{% static 'css/styles.css' %}">
-          <style>
-
-    .competitions-hero {
-
-        padding: 100px 8%;
-
-        text-align: center;
-
-        background: #f5f7fa;
-
-    }
+{% block content %}
 
 
-    .competitions-hero h1 {
+<!-- ==========================================
+     COMPETITION HEADER
+========================================== -->
 
-        font-size: 48px;
-
-        margin: 15px 0;
-
-    }
-
-
-    .competitions-section {
-
-        padding: 80px 8%;
-
-        background: #f5f7fa;
-
-    }
-
-
-    .competitions-grid {
-
-        display: grid;
-
-        grid-template-columns: repeat(4, 1fr);
-
-        gap: 25px;
-
-    }
-
-
-    .competition-card {
-
-        padding: 30px;
-
-        background: white;
-
-        border-radius: 14px;
-
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
-    }
-
-
-    .competition-icon {
-
-        font-size: 45px;
-
-    }
-
-</style>
-
-</head>
-
-<body>
-
-
-<header class="navbar">
-
-    <div class="logo">
-
-        <h2>Imbuto Edu</h2>
-
-    </div>
-
-
-    <nav>
-
-        <a href="{% url 'home' %}">Home</a>
-
-        <a href="{% url 'schools_page' %}">Schools</a>
-
-        <a href="{% url 'top_schools' %}">Rankings</a>
-
-        <a href="{% url 'sports' %}">Sports</a>
-
-        <a href="{% url 'competitions' %}">Competitions</a>
-
-        <a href="#">Careers</a>
-
-    </nav>
-
-</header>
-
-
-<section class="competitions-hero">
+<section class="competitions-header">
 
     <p class="eyebrow">
-
-        GO BEYOND THE CLASSROOM
-
+        COMPETITION & EXCELLENCE
     </p>
 
-
     <h1>
-
-        Competitions & Opportunities
-
+        School Competitions
     </h1>
 
-
     <p>
-
-        Discover opportunities to challenge yourself,
-        develop your talents and achieve excellence.
-
+        Discover competitions, participating schools,
+        achievements and opportunities across Rwanda.
     </p>
 
 </section>
 
 
-<section class="competitions-section">
+<!-- ==========================================
+     COMPETITION FILTER
+========================================== -->
+
+<section class="competition-filter">
+
+    <form method="GET">
+
+        <label for="competition">
+
+            Explore a competition
+
+        </label>
+
+
+        <select
+            name="competition"
+            id="competition"
+        >
+
+            <option value="">
+
+                All Competitions
+
+            </option>
+
+
+            {% for competition in competitions %}
+
+                <option
+                    value="{{ competition.id }}"
+                    {% if selected_competition == competition.id|stringformat:"s" %}
+                        selected
+                    {% endif %}
+                >
+
+                    {{ competition.name }}
+
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <button type="submit">
+
+            Find Schools
+
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ==========================================
+     COMPETITION RESULTS
+========================================== -->
+
+<section class="competition-results">
 
 
     <div class="section-heading">
 
         <span class="section-label">
 
-            EXPLORE OPPORTUNITIES
+            SCHOOL ACHIEVEMENTS
 
         </span>
 
 
         <h2>
 
-            Find Your Challenge
+            Competitions & Schools
 
         </h2>
-
-
-        <p>
-
-            Explore different competitions and opportunities
-            for students across Rwanda.
-
-        </p>
 
     </div>
 
 
-    <div class="competitions-grid">
+    <div class="school-grid">
 
 
-        <div class="competition-card">
+        {% for item in school_competitions %}
 
-            <div class="competition-icon">
 
-                🗣️
+        <article class="school-card">
+
+
+            {% if item.school.image %}
+
+                <img
+                    src="{{ item.school.image.url }}"
+                    alt="{{ item.school.name }}"
+                    class="school-card-image"
+                >
+
+            {% endif %}
+
+
+            <div class="school-card-content">
+
+
+                <span class="school-badge">
+
+                    {{ item.competition.name }}
+
+                </span>
+
+
+                <h3>
+
+                    {{ item.school.name }}
+
+                </h3>
+
+
+                <p class="school-location">
+
+                    📍 {{ item.school.district }},
+                    {{ item.school.province }}
+
+                </p>
+
+
+                {% if item.year %}
+
+                    <p>
+
+                        <strong>
+                            Year:
+                        </strong>
+
+                        {{ item.year }}
+
+                    </p>
+
+                {% endif %}
+
+
+                {% if item.position %}
+
+                    <p>
+
+                        <strong>
+                            Position:
+                        </strong>
+
+                        {{ item.position }}
+
+                    </p>
+
+                {% endif %}
+
+
+                {% if item.achievement %}
+
+                    <p class="school-description">
+
+                        <strong>
+                            Achievement:
+                        </strong>
+
+                        {{ item.achievement|truncatewords:25 }}
+
+                    </p>
+
+                {% endif %}
+
+
+                <a
+                    href="{% url 'school_detail' item.school.id %}"
+                >
+
+                    View School Profile →
+
+                </a>
+
 
             </div>
 
 
+        </article>
+
+
+        {% empty %}
+
+
+        <div class="empty-schools">
+
             <h3>
 
-                Debate
+                No competition information yet
 
             </h3>
 
 
             <p>
 
-                Develop public speaking, critical thinking
-                and communication skills.
+                Competition participation and
+                achievements will appear here as
+                information is added.
 
             </p>
-
-
-            <a href="#">
-
-                Explore Debate →
-
-            </a>
 
         </div>
 
 
-        <div class="competition-card">
-
-            <div class="competition-icon">
-
-                💻
-
-            </div>
-
-
-            <h3>
-
-                Coding
-
-            </h3>
-
-
-            <p>
-
-                Discover programming, technology and
-                innovation competitions.
-
-            </p>
-
-
-            <a href="#">
-
-                Explore Coding →
-
-            </a>
-
-        </div>
-
-
-        <div class="competition-card">
-
-            <div class="competition-icon">
-
-                🔬
-
-            </div>
-
-
-            <h3>
-
-                Science Fairs
-
-            </h3>
-
-
-            <p>
-
-                Showcase scientific ideas, research
-                and innovation.
-
-            </p>
-
-
-            <a href="#">
-
-                Explore Science →
-
-            </a>
-
-        </div>
-
-
-        <div class="competition-card">
-
-            <div class="competition-icon">
-
-                🧠
-
-            </div>
-
-
-            <h3>
-
-                Olympiads
-
-            </h3>
-
-
-            <p>
-
-                Challenge yourself in Mathematics,
-                Physics and Chemistry.
-
-            </p>
-
-
-            <a href="#">
-
-                Explore Olympiads →
-
-            </a>
-
-        </div>
+        {% endfor %}
 
 
     </div>
@@ -305,17 +247,4 @@
 </section>
 
 
-<footer>
-
-    <p>
-
-        © 2026 Imbuto Edu — Plant Your Future
-
-    </p>
-
-</footer>
-
-
-</body>
-
-</html>
+{% endblock %}

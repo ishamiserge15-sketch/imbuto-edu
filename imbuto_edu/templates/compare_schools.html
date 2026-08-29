@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Compare Schools | Imbuto Edu
+{% endblock %}
+
+{% block content %}
+{% if comparison_error %}
+
+    <div class="comparison-error">
+
+        {{ comparison_error }}
+
+    </div>
+
+{% endif %}
+
+<section class="explore-header">
+
+    <p class="eyebrow">
+        COMPARE EDUCATION OPTIONS
+    </p>
+
+    <h1>
+        Compare Schools
+    </h1>
+
+    <p>
+        Compare schools side by side and find the option
+        that best matches your goals.
+    </p>
+
+</section>
+
+
+<section class="comparison-section">
+
+    {% if schools %}
+
+        <div class="comparison-table-wrapper">
+
+            <table class="comparison-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Information
+                        </th>
+
+
+                        {% for school in schools %}
+
+                            <th>
+
+                                {% if school.image %}
+
+                                    <img
+                                        src="{{ school.image.url }}"
+                                        alt="{{ school.name }}"
+                                        class="comparison-image"
+                                    >
+
+                                {% endif %}
+
+                                <h3>
+                                    {{ school.name }}
+                                </h3>
+
+                            </th>
+
+                        {% endfor %}
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <th>
+                            District
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+                                {{ school.district }}
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            Province
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+                                {{ school.province }}
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            Category
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+                                {{ school.category }}
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            School Type
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+                                {{ school.school_type }}
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            Ownership
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+                                {{ school.ownership }}
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            School Fees
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+                                {{ school.school_fees }}
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            Website
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+
+                                {% if school.website %}
+
+                                    <a
+                                        href="{{ school.website }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Visit Website
+                                    </a>
+
+                                {% else %}
+
+                                    Not available
+
+                                {% endif %}
+
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            Profile
+                        </th>
+
+                        {% for school in schools %}
+
+                            <td>
+
+                                <a
+                                    href="{% url 'school_detail' school.id %}"
+                                >
+                                    View Profile →
+                                </a>
+
+                            </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    {% else %}
+
+        <div class="empty-schools">
+
+            <h2>
+                No schools selected
+            </h2>
+
+            <p>
+                Go back to Explore Schools and select
+                schools to compare.
+            </p>
+
+            <a
+                href="{% url 'schools_page' %}"
+                class="cta-button"
+            >
+                ← Explore Schools
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

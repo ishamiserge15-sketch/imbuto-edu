@@ -1,341 +1,236 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Top Schools | Imbuto Edu
+{% endblock %}
 
-<head>
+{% block content %}
 
-    <meta charset="UTF-8">
+<section class="ranking-header">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <p class="eyebrow">
+        SCHOOL RANKINGS
+    </p>
 
-    <title>Top Schools | Imbuto Edu</title>
+    <h1>
+        Top Schools in Rwanda
+    </h1>
 
-    <link rel="stylesheet"
-          href="{% static 'css/styles.css' %}">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-</head>
-
-<body>
-
-
-<!-- ========================= -->
-<!-- NAVIGATION -->
-<!-- ========================= -->
-
-<header class="navbar">
-
-    <div class="logo">
-
-        <h2>Imbuto Edu</h2>
-
-    </div>
-
-
-    <nav>
-
-        <ul>
-
-            <li>
-
-                <a href="{% url 'home' %}">
-
-                    Home
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="{% url 'schools_page' %}">
-
-                    Schools
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="{% url 'top_schools' %}">
-
-                    Top Schools
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="{% url 'sports' %}">Sports</a>
-
-            </li>
-
-
-            <li>
-
-                <a href="{% url 'competitions' %}">Competitions</a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    Careers & TVET
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!-- ========================= -->
-<!-- TOP SCHOOLS HERO -->
-<!-- ========================= -->
-
-<section class="ranking-hero">
-
-
-    <div class="ranking-hero-content">
-
-
-        <span class="section-label">
-
-            EXCELLENCE & ACHIEVEMENT
-
-        </span>
-
-
-        <h1>
-
-            Rwanda's Top Schools
-
-        </h1>
-
-
-        <p>
-
-            Discover schools recognized for academic excellence,
-            innovation and outstanding student achievement.
-
-        </p>
-
-
-    </div>
-
+    <p>
+        Explore schools by academic performance,
+        sports and innovation.
+    </p>
 
 </section>
 
 
-<!-- ========================= -->
-<!-- RANKING SECTION -->
-<!-- ========================= -->
+<!-- ==========================================
+     RANKING FILTERS
+========================================== -->
+
+<section class="ranking-filters">
+
+    <a
+        href="{% url 'top_schools' %}?ranking=overall"
+        class="{% if ranking == 'overall' %}active{% endif %}"
+    >
+        Overall
+    </a>
+
+
+    <a
+        href="{% url 'top_schools' %}?ranking=academic"
+        class="{% if ranking == 'academic' %}active{% endif %}"
+    >
+        Academic
+    </a>
+
+
+    <a
+        href="{% url 'top_schools' %}?ranking=sports"
+        class="{% if ranking == 'sports' %}active{% endif %}"
+    >
+        Sports
+    </a>
+
+
+    <a
+        href="{% url 'top_schools' %}?ranking=innovation"
+        class="{% if ranking == 'innovation' %}active{% endif %}"
+    >
+        Innovation
+    </a>
+
+</section>
+
+
+<!-- ==========================================
+     RANKING LIST
+========================================== -->
 
 <section class="ranking-section">
 
+    <div class="ranking-list">
 
-    <div class="section-heading">
 
+        {% for school in schools %}
 
-        <span class="section-label">
+        <article class="ranking-card">
 
-            SCHOOL RANKINGS
 
-        </span>
+            <!-- RANK NUMBER -->
 
+            <div class="ranking-position">
 
-        <h2>
+                {% if forloop.counter == 1 %}
 
-            Leading Schools in Rwanda
+                    🥇
 
-        </h2>
+                {% elif forloop.counter == 2 %}
 
+                    🥈
 
-        <p>
+                {% elif forloop.counter == 3 %}
 
-            Explore schools that continue to demonstrate excellence
-            in education and student development.
+                    🥉
 
-        </p>
+                {% else %}
 
+                    {{ forloop.counter }}
 
-    </div>
+                {% endif %}
 
-<div class="ranking-grid">
+            </div>
 
-    {% for school in schools %}
 
-    <div class="ranking-card">
+            <!-- SCHOOL IMAGE -->
 
-        <div class="rank-number">
+            {% if school.image %}
 
-            #{{ forloop.counter }}
+                <img
+                    src="{{ school.image.url }}"
+                    alt="{{ school.name }}"
+                    class="ranking-image"
+                >
 
-        </div>
+            {% endif %}
 
 
-        <div class="ranking-content">
+            <!-- SCHOOL INFORMATION -->
 
-            <h3>
+            <div class="ranking-content">
 
-                {{ school.name }}
+                <span class="school-badge">
 
-            </h3>
+                    {{ school.school_type }}
 
+                </span>
 
-            <p>
 
-                {{ school.district }}, Rwanda
+                <h2>
 
-            </p>
+                    {{ school.name }}
 
+                </h2>
 
-            <span>
 
-                Academic Excellence
+                <p>
 
-            </span>
+                    📍 {{ school.district }},
+                    {{ school.province }}
 
-        </div>
+                </p>
 
-    </div>
 
+                <!-- SCORE -->
 
-    {% empty %}
+                <div class="ranking-score">
 
-    <p>
+                    {% if ranking == 'academic' %}
 
-        No schools available yet.
+                        <strong>
+                            {{ school.academic_score }}
+                        </strong>
 
-    </p>
+                        <span>
+                            Academic Score
+                        </span>
 
 
-    {% endfor %}
+                    {% elif ranking == 'sports' %}
 
-</div>
+                        <strong>
+                            {{ school.sports_score }}
+                        </strong>
 
-   </section>
+                        <span>
+                            Sports Score
+                        </span>
 
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+                    {% elif ranking == 'innovation' %}
 
-<footer>
+                        <strong>
+                            {{ school.innovation_score }}
+                        </strong>
 
+                        <span>
+                            Innovation Score
+                        </span>
 
-    <div class="footer-content">
 
+                    {% else %}
 
-        <div>
+                        <strong>
+                            {{ school.academic_score }}
+                        </strong>
 
-            <h3>
+                        <span>
+                            Overall Ranking
+                        </span>
 
-                Imbuto Edu
+                    {% endif %}
 
-            </h3>
+                </div>
 
 
-            <p>
+                <a
+                    href="{% url 'school_detail' school.id %}"
+                    class="ranking-profile-link"
+                >
 
-                Plant Your Future
-
-            </p>
-
-
-        </div>
-
-
-        <div>
-
-            <h4>
-
-                Quick Links
-
-            </h4>
-
-
-            <p>
-
-                <a href="{% url 'home' %}">
-
-                    Home
+                    View School Profile →
 
                 </a>
 
-            </p>
+            </div>
 
+
+        </article>
+
+
+        {% empty %}
+
+
+        <div class="empty-schools">
+
+            <h3>
+                No schools available
+            </h3>
 
             <p>
-
-                <a href="{% url 'schools_page' %}">
-
-                    Schools
-
-                </a>
-
+                School ranking information will appear here.
             </p>
-
 
         </div>
 
 
-        <div>
-
-            <h4>
-
-                Contact
-
-            </h4>
-
-
-            <p>
-
-                Kigali, Rwanda
-
-            </p>
-
-        </div>
+        {% endfor %}
 
 
     </div>
 
+</section>
 
-    <hr>
-
-
-    <p class="copyright">
-
-        © 2026 Imbuto Edu. All Rights Reserved.
-
-    </p>
-
-
-</footer>
-
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,725 +1,1695 @@
-* {
+/* ====================================
+   IMBUTO EDU
+   GLOBAL STYLES
+==================================== */
 
-    margin: 0;
+*{
 
-    padding: 0;
+    margin:0;
 
-    box-sizing: border-box;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f5f7fa;
+
+    color:#333;
+
+    line-height:1.6;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+ul{
+
+    list-style:none;
 
 }
 
 
-body {
+/* ====================================
+   NAVBAR
+==================================== */
 
-    font-family: Arial, sans-serif;
+.navbar{
 
-    background: #f5f7fa;
+    display:flex;
 
-    color: #222;
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 8%;
+
+    background:#ffffff;
+
+    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo h2{
+
+    color:#1d4ed8;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.navbar nav ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.navbar nav ul li a{
+
+    color:#222;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar nav ul li a:hover{
+
+    color:#1d4ed8;
+
+}
+/* ====================================
+   HERO SECTION
+==================================== */
+
+.hero{
+
+    padding:100px 8%;
+
+    background:linear-gradient(135deg,#1d4ed8,#2563eb);
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.hero-content{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+}
+
+.hero-content h1{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.hero-content p{
+
+    font-size:18px;
+
+    color:#dbeafe;
+
+    margin-bottom:35px;
 
 }
 
 
-/* ========================= */
-/* NAVIGATION */
-/* ========================= */
+/* ====================================
+   SEARCH BAR
+==================================== */
 
-.navbar {
+.search-box{
 
-    display: flex;
+    max-width:700px;
 
-    justify-content: space-between;
+    margin:0 auto;
 
-    align-items: center;
+    display:flex;
 
-    padding: 20px 8%;
+    background:white;
 
-    background: white;
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+.search-box button{
+
+    padding:18px 30px;
+
+    border:none;
+
+    background:#0f172a;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.search-box button:hover{
+
+    background:#111827;
 
 }
 
 
-/* LOGO */
+/* ====================================
+   STATISTICS
+==================================== */
 
-.logo h2 {
+.stats{
 
-    color: #2455d6;
+    display:grid;
 
-    font-size: 24px;
+    grid-template-columns:repeat(4,1fr);
 
-}
+    gap:25px;
 
+    padding:70px 8%;
 
-/* NAVIGATION LIST */
-
-.navbar nav ul {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 30px;
-
-    list-style: none;
-
-    margin: 0;
-
-    padding: 0;
+    background:white;
 
 }
 
+.stat-card{
 
-/* NAVIGATION LINKS */
+    text-align:center;
 
-.navbar nav ul li a {
+    padding:30px;
 
-    text-decoration: none;
+    border-radius:14px;
 
-    color: #222;
+    background:#f8fafc;
 
-    font-size: 16px;
-
-    font-weight: 500;
-
-    transition: 0.3s;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 
 }
 
+.stat-card h2{
 
-/* HOVER EFFECT */
+    font-size:40px;
 
-.navbar nav ul li a:hover {
+    color:#1d4ed8;
 
-    color: #2455d6;
-
-}
-/* ========================= */
-/* STATISTICS */
-/* ========================= */
-
-.stats {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 25px;
-
-    padding: 50px 8%;
-
-    background: #f5f7fa;
+    margin-bottom:10px;
 
 }
 
+.stat-card p{
 
-.stat-card {
+    color:#666;
 
-    text-align: center;
+}
+/* ====================================
+   FEATURED SCHOOLS
+==================================== */
 
-    padding: 25px;
+.featured-schools{
 
-    background: white;
+    padding:90px 8%;
 
-    border-radius: 12px;
+    background:#f5f7fa;
 
 }
 
+.section-heading{
 
-.stat-card h2 {
+    text-align:center;
 
-    font-size: 32px;
+    max-width:700px;
 
-    color: #2455d6;
-
-    margin-bottom: 5px;
-
-}
-
-
-.stat-card p {
-
-    color: #666;
-
-    font-size: 15px;
+    margin:0 auto 50px;
 
 }
 
-.logo h2 {
+.section-label{
 
-    color: #1d4ed8;
+    color:#1d4ed8;
 
-}
+    font-size:13px;
 
+    font-weight:700;
 
-nav {
-
-    display: flex;
-
-    gap: 25px;
+    letter-spacing:2px;
 
 }
 
+.section-heading h2{
 
-nav a {
+    font-size:38px;
 
-    text-decoration: none;
-
-    color: #333;
-
-}
-
-
-.hero {
-
-    padding: 100px 8%;
-
-    background: #1d4ed8;
-
-    color: white;
+    margin:12px 0;
 
 }
 
+.section-heading p{
 
-.hero h1 {
-
-    font-size: 50px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.hero p {
-
-    font-size: 20px;
-
-    margin-bottom: 25px;
-
-}
-
-
-.hero input {
-
-    padding: 15px;
-
-    width: 350px;
-
-    border: none;
-
-    border-radius: 5px;
-
-}
-
-
-.featured-schools {
-
-    padding: 60px 8%;
-
-}
-
-
-.featured-schools h2 {
-
-    margin-bottom: 30px;
-
-}
-
-
-.school-grid {
-
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 25px;
-
-}
-
-
-.school-card {
-
-    width: 100%;
-
-    background: white;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-
-}
-
-
-.school-card h3 {
-
-    margin-bottom: 15px;
-
-}
-/* SCHOOL CARD HOVER */
-
-.school-card:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-
-}
-
-
-/* CARD TOP */
-
-.school-card-top {
-
-    height: 110px;
-
-    background: linear-gradient(
-
-        135deg,
-
-        #1d4ed8,
-
-        #2563eb
-
-    );
-
-    padding: 20px;
-
-}
-
-
-/* SCHOOL BADGE */
-
-.school-badge {
-
-    display: inline-block;
-
-    background: white;
-
-    color: #1d4ed8;
-
-    padding: 7px 12px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-
-    font-weight: bold;
-
-}
-
-
-/* CARD CONTENT */
-
-.school-card-content {
-
-    padding: 25px;
-
-}
-
-
-.school-card-content h3 {
-
-    font-size: 22px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.school-location {
-
-    color: #666;
-
-    font-size: 14px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.school-description {
-
-    color: #555;
-
-    line-height: 1.7;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* CARD FOOTER */
-
-.school-card-footer {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    border-top: 1px solid #eee;
-
-    padding-top: 18px;
-
-    font-size: 13px;
-
-}
-
-
-.school-card-footer span {
-
-    color: #777;
-
-}
-
-
-.school-card-footer a {
-
-    color: #1d4ed8;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-}
-
-
-.school-card-footer a:hover {
-
-    text-decoration: underline;
-
-}
-/* ================================= */
-/* FEATURED SCHOOLS */
-/* ================================= */
-
-.featured-schools {
-
-    padding: 90px 8%;
-
-    background: #f5f7fa;
-
-}
-
-
-.section-heading {
-
-    text-align: center;
-
-    max-width: 700px;
-
-    margin: 0 auto 50px;
-
-}
-
-
-.section-label {
-
-    display: block;
-
-    color: #1d4ed8;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-}
-
-
-.section-heading h2 {
-
-    font-size: 38px;
-
-    margin: 12px 0;
-
-}
-
-
-.section-heading p {
-
-    color: #666;
+    color:#666;
 
 }
 
 
 /* SCHOOL GRID */
 
-.school-grid {
+.school-grid{
 
-    display: grid;
+    width:100%;
 
-    grid-template-columns: repeat(3, 1fr);
+    display:grid;
 
-    gap: 25px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:25px;
 
 }
 
 
 /* SCHOOL CARD */
 
-.school-card {
+.school-card{
 
-    background: white;
+    width:100%;
 
-    border-radius: 14px;
+    background:white;
 
-    overflow: hidden;
+    border-radius:14px;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow:hidden;
 
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:transform .3s ease,
+               box-shadow .3s ease;
+
+}
+
+.school-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.school-card-top{
+
+    height:110px;
+
+    background:linear-gradient(135deg,#1d4ed8,#2563eb);
+
+    padding:20px;
+
+}
+
+.school-badge{
+
+    display:inline-block;
+
+    background:white;
+
+    color:#1d4ed8;
+
+    padding:7px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.school-card-content{
+
+    padding:25px;
+
+}
+
+.school-card-content h3{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+.school-location{
+
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+}
+
+.school-description{
+
+    color:#555;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+.school-card-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-top:1px solid #eee;
+
+    padding-top:18px;
+
+    font-size:13px;
+
+}
+
+.school-card-footer span{
+
+    color:#777;
+
+}
+
+.school-card-footer a{
+
+    color:#1d4ed8;
+
+    font-weight:700;
+
+}
+
+.empty-schools{
+
+    width:100%;
+
+    text-align:center;
+
+    padding:60px;
+
+}
+/* ====================================
+   CATEGORY SECTIONS
+==================================== */
+
+.categories,
+.sports-preview,
+.competitions,
+.careers,
+.why-us{
+
+    padding:90px 8%;
+
+    background:white;
+
+}
+
+/* CATEGORY GRID */
+
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:25px;
+
+}
+
+/* CATEGORY CARD */
+
+.category-card{
+
+    padding:30px;
+
+    background:#f8fafc;
+
+    border-radius:14px;
+
+    border:1px solid #e5e7eb;
+
+    transition:transform .3s ease,
+               box-shadow .3s ease;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+.category-card h3{
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+}
+
+.category-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+
+.category-card a{
+
+    color:#1d4ed8;
+
+    font-weight:bold;
+
+}
+
+.category-card a:hover{
+
+    text-decoration:underline;
+
+}
+/* ====================================
+   CALL TO ACTION
+==================================== */
+
+.cta{
+
+    padding:80px 8%;
+
+    background:#1d4ed8;
+
+    text-align:center;
+
+}
+
+.cta-content{
+
+    max-width:700px;
+
+    margin:0 auto;
+
+}
+
+.cta h2{
+
+    color:white;
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+.cta p{
+
+    color:#dbeafe;
+
+    margin-bottom:30px;
+
+}
+
+.cta-button{
+
+    display:inline-block;
+
+    padding:14px 30px;
+
+    background:white;
+
+    color:#1d4ed8;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.cta-button:hover{
+
+    transform:translateY(-4px);
 
 }
 
 
-.school-card:hover {
+/* ====================================
+   FOOTER
+==================================== */
 
-    transform: translateY(-8px);
+footer{
 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    padding:60px 8% 25px;
+
+    background:#111827;
+
+    color:white;
+
+}
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+.footer-content h3{
+
+    font-size:24px;
+
+    margin-bottom:15px;
+
+}
+
+.footer-content h4{
+
+    margin-bottom:15px;
+
+}
+
+.footer-content p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+.footer-content a{
+
+    color:#cbd5e1;
+
+}
+
+.footer-content a:hover{
+
+    color:white;
+
+}
+
+footer hr{
+
+    margin:40px 0 20px;
+
+    border:none;
+
+    border-top:1px solid #374151;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:#9ca3af;
+
+    font-size:14px;
+
+}
+/* ====================================
+   EXPLORE SCHOOLS PAGE
+==================================== */
+
+.explore-header{
+
+    text-align:center;
+
+    padding:90px 8% 50px;
+
+    background:#f5f7fa;
+
+}
+
+.explore-header h1{
+
+    font-size:46px;
+
+    margin:15px 0;
+
+}
+
+.explore-header p{
+
+    color:#666;
+
+}
+
+.eyebrow{
+
+    color:#1d4ed8;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+}
+
+.school-filters{
+
+    max-width:1200px;
+
+    margin:-20px auto 60px;
+
+    padding:25px;
+
+    background:white;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.school-filters form{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr auto;
+
+    gap:15px;
+
+}
+
+.school-filters input,
+.school-filters select{
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+}
+
+.school-filters input:focus,
+.school-filters select:focus{
+
+    outline:none;
+
+    border-color:#1d4ed8;
+
+}
+
+.school-filters button{
+
+    border:none;
+
+    background:#1d4ed8;
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.school-filters button:hover{
+
+    background:#163fa8;
+
+}
+
+.explore-schools{
+
+    padding:20px 8% 80px;
+
+}
+/* ====================================
+   SCHOOL DETAIL PAGE
+==================================== */
+
+.profile-hero{
+
+    padding:90px 8%;
+
+    background:#1d4ed8;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.profile-hero h1{
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+.profile-hero p{
+
+    color:#dbeafe;
+
+    font-size:18px;
+
+}
+
+.school-profile{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:35px;
+
+    padding:80px 8%;
+
+}
+
+.profile-main{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.profile-sidebar{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    height:fit-content;
+
+}
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.info-title{
+
+    font-weight:600;
+
+}
+
+.info-value{
+
+    color:#666;
+
+}
+/* ====================================
+   TOP SCHOOLS PAGE
+==================================== */
+
+.top-schools-hero{
+
+    padding:100px 8%;
+
+    text-align:center;
+
+    background:#f5f7fa;
+
+}
+
+.top-schools-hero h1{
+
+    font-size:48px;
+
+    margin:15px 0;
+
+}
+
+.top-schools-hero p{
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+.ranking-section{
+
+    padding:80px 8%;
+
+    background:#f5f7fa;
+
+}
+
+.ranking-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.ranking-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:white;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:0.3s;
+
+}
+
+.ranking-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.rank-number{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#1d4ed8;
+
+}
+
+.ranking-content h3{
+
+    margin-bottom:8px;
+
+}
+
+.ranking-content p{
+
+    color:#666;
+
+    margin-bottom:8px;
+
+}
+
+.ranking-content span{
+
+    color:#1d4ed8;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+/* ====================================
+   SPORTS PAGE
+==================================== */
+
+.sports-hero{
+
+    padding:100px 8%;
+
+    text-align:center;
+
+    background:#f5f7fa;
+
+}
+
+.sports-hero h1{
+
+    font-size:48px;
+
+    margin:15px 0;
+
+}
+
+.sports-hero p{
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+.sports-section{
+
+    padding:80px 8%;
+
+    background:#f5f7fa;
+
+}
+
+.sports-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.sport-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:transform .3s ease,
+               box-shadow .3s ease;
+
+}
+
+.sport-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.sport-icon{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+.sport-card h3{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+}
+
+.sport-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+
+.sport-card a{
+
+    color:#1d4ed8;
+
+    font-weight:bold;
+
+}
+/* ====================================
+   COMPETITIONS PAGE
+==================================== */
+
+.competitions-hero{
+
+    padding:100px 8%;
+
+    text-align:center;
+
+    background:#f5f7fa;
+
+}
+
+.competitions-hero h1{
+
+    font-size:48px;
+
+    margin:15px 0;
+
+}
+
+.competitions-hero p{
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+.competitions-section{
+
+    padding:80px 8%;
+
+    background:#f5f7fa;
+
+}
+
+.competitions-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.competition-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:transform .3s ease,
+               box-shadow .3s ease;
+
+}
+
+.competition-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.competition-icon{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+.competition-card h3{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+}
+
+.competition-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+
+.competition-card a{
+
+    color:#1d4ed8;
+
+    font-weight:bold;
 
 }
 
 
-/* CARD TOP */
+/* ====================================
+   CAREERS PAGE
+==================================== */
 
-.school-card-top {
+.careers-hero{
 
-    height: 110px;
+    padding:100px 8%;
 
-    background: linear-gradient(
-        135deg,
-        #1d4ed8,
-        #2563eb
-    );
+    text-align:center;
 
-    padding: 20px;
+    background:#f5f7fa;
+
+}
+
+.careers-hero h1{
+
+    font-size:48px;
+
+    margin:15px 0;
+
+}
+
+.careers-hero p{
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+.careers-section{
+
+    padding:80px 8%;
+
+    background:#f5f7fa;
+
+}
+
+.careers-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.career-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:transform .3s ease,
+               box-shadow .3s ease;
+
+}
+
+.career-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.career-icon{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+.career-card h3{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+}
+
+.career-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+
+.career-card a{
+
+    color:#1d4ed8;
+
+    font-weight:bold;
+
+}
+/* ====================================
+   RESPONSIVE DESIGN
+==================================== */
+
+/* Tablets */
+
+@media (max-width: 992px){
+
+    .navbar{
+
+        padding:20px 5%;
+
+    }
+
+    .navbar nav ul{
+
+        gap:18px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:42px;
+
+    }
+
+    .stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .school-grid,
+    .category-grid,
+    .ranking-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .sports-grid,
+    .competitions-grid,
+    .careers-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .school-profile{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .school-filters form{
+
+        grid-template-columns:1fr 1fr;
+
+    }
 
 }
 
 
-.school-badge {
+/* Phones */
 
-    display: inline-block;
+@media (max-width:768px){
 
-    background: white;
+    .navbar{
 
-    color: #1d4ed8;
+        flex-direction:column;
 
-    padding: 7px 12px;
+        gap:20px;
 
-    border-radius: 20px;
+    }
 
-    font-size: 12px;
+    .navbar nav ul{
 
-    font-weight: bold;
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+
+    .hero{
+
+        padding:80px 5%;
+
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+
+    }
+
+    .search-box{
+
+        flex-direction:column;
+
+    }
+
+    .search-box button{
+
+        width:100%;
+
+    }
+
+    .stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .school-grid,
+    .category-grid,
+    .ranking-grid,
+    .sports-grid,
+    .competitions-grid,
+    .careers-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .school-filters{
+
+        margin:20px;
+
+    }
+
+    .school-filters form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-hero h1,
+    .top-schools-hero h1,
+    .sports-hero h1,
+    .competitions-hero h1,
+    .careers-hero h1,
+    .explore-header h1{
+
+        font-size:34px;
+
+    }
+
+    .info-row{
+
+        flex-direction:column;
+
+        gap:6px;
+
+    }
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
 
 }
-
-
-/* CARD CONTENT */
-
-.school-card-content {
-
-    padding: 25px;
-
-}
-
-
-.school-card-content h3 {
-
-    font-size: 22px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.school-location {
-
-    color: #666;
-
-    font-size: 14px;
-
+.school-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
     margin-bottom: 15px;
+}
+/* ================================= */
+/* SCHOOL DETAIL IMAGE */
+/* ================================= */
+
+.profile-school-image {
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    display: block;
+
+    margin: 0 auto 25px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 
 }
 
 
-.school-description {
+/* ================================= */
+/* SCHOOL PROFILE ACTIONS */
+/* ================================= */
 
-    color: #555;
-
-    line-height: 1.7;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* CARD FOOTER */
-
-.school-card-footer {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    border-top: 1px solid #eee;
-
-    padding-top: 18px;
-
-    font-size: 13px;
-
-}
-
-
-.school-card-footer span {
-
-    color: #777;
-
-}
-
-
-.school-card-footer a {
-
-    color: #1d4ed8;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-}
-
-
-.school-card-footer a:hover {
-
-    text-decoration: underline;
-
-}
-
-
-/* EMPTY STATE */
-
-.empty-schools {
+.profile-actions {
 
     text-align: center;
 
-    width: 100%;
+    padding: 30px 8% 70px;
 
-    padding: 50px;
+}
+
+
+/* ================================= */
+/* SCHOOL DETAIL RESPONSIVE */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .profile-school-image {
+
+        width: 140px;
+
+        height: 140px;
+
+    }
 
 }
 /* ================================= */
-/* SCHOOL PROFILE */
+/* SCHOOL DETAIL PAGE */
 /* ================================= */
-
 
 .profile-hero {
 
-    background: linear-gradient(
+    padding: 90px 8% 70px;
 
-        135deg,
+    text-align: center;
 
-        #1d4ed8,
-
-        #2563eb
-
-    );
-
-    color: white;
-
-    padding: 80px 8%;
+    background: #f5f7fa;
 
 }
 
 
 .profile-hero-content {
 
-    max-width: 1000px;
+    max-width: 850px;
 
-    margin: auto;
+    margin: 0 auto;
 
 }
 
 
 .profile-hero h1 {
 
-    font-size: 48px;
+    font-size: 46px;
 
-    margin: 20px 0 10px;
+    margin: 20px 0 12px;
+
+    color: #111827;
 
 }
 
 
 .profile-hero p {
 
-    font-size: 18px;
+    color: #64748b;
+
+    font-size: 17px;
 
 }
 
 
+/* SCHOOL IMAGE */
+
+.profile-school-image {
+
+    width: 190px;
+
+    height: 190px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    display: block;
+
+    margin: 0 auto 25px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* PROFILE LAYOUT */
+
 .school-profile {
 
-    max-width: 1100px;
+    max-width: 1150px;
 
-    margin: 60px auto;
+    margin: 0 auto;
 
-    padding: 0 30px;
+    padding: 70px 8%;
 
     display: grid;
 
     grid-template-columns: 2fr 1fr;
 
-    gap: 40px;
+    gap: 30px;
+
+    align-items: start;
 
 }
 
 
-.profile-main,
+/* ABOUT CARD */
 
-.profile-info {
-
-    background: white;
+.profile-main {
 
     padding: 35px;
 
-    border-radius: 12px;
+    background: white;
 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
 
 }
 
 
-.profile-main h2,
-
-.profile-info h2 {
+.profile-main h2 {
 
     margin-bottom: 20px;
+
+    font-size: 28px;
 
 }
 
 
 .profile-main p {
 
-    line-height: 1.8;
+    color: #64748b;
 
-    color: #555;
+    line-height: 1.8;
 
 }
 
+
+/* INFORMATION CARD */
+
+.profile-info {
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+}
+
+
+.profile-info h2 {
+
+    font-size: 24px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* INFORMATION ROWS */
 
 .info-row {
 
@@ -729,40 +1699,58 @@ nav a {
 
     gap: 20px;
 
-    padding: 15px 0;
+    padding: 14px 0;
 
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+
+.info-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.info-row strong {
+
+    color: #111827;
 
 }
 
 
 .info-row span {
 
-    color: #666;
+    color: #64748b;
 
     text-align: right;
 
 }
 
 
+/* CONTACT */
+
 .contact-school {
 
-    max-width: 1100px;
+    max-width: 1000px;
 
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
 
-    padding: 35px;
+    padding: 40px;
 
     background: white;
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
 
 }
 
 
 .contact-school h2 {
+
+    font-size: 28px;
 
     margin-bottom: 20px;
 
@@ -771,7 +1759,9 @@ nav a {
 
 .contact-school p {
 
-    margin: 10px 0;
+    margin: 12px 0;
+
+    color: #64748b;
 
 }
 
@@ -780,15 +1770,40 @@ nav a {
 
     color: #1d4ed8;
 
+    text-decoration: none;
+
+    font-weight: 600;
+
 }
 
 
+.contact-school a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* BACK BUTTON */
+
+.profile-actions {
+
+    text-align: center;
+
+    padding: 10px 8% 70px;
+
+}
+
+
+/* ================================= */
+/* SCHOOL DETAIL MOBILE */
+/* ================================= */
+
 @media (max-width: 768px) {
 
+    .profile-hero {
 
-    .school-profile {
-
-        grid-template-columns: 1fr;
+        padding: 70px 5% 50px;
 
     }
 
@@ -796,6 +1811,35 @@ nav a {
     .profile-hero h1 {
 
         font-size: 34px;
+
+    }
+
+
+    .profile-school-image {
+
+        width: 150px;
+
+        height: 150px;
+
+    }
+
+
+    .school-profile {
+
+        grid-template-columns: 1fr;
+
+        padding: 50px 5%;
+
+    }
+
+
+    .profile-main,
+
+    .profile-info,
+
+    .contact-school {
+
+        padding: 25px;
 
     }
 
@@ -809,22 +1853,290 @@ nav a {
     }
 
 
+    .info-row span {
+
+        text-align: left;
+
+    }
+
+
+    .contact-school {
+
+        margin: 0 5% 30px;
+
+    }
+
 }
 /* ================================= */
-/* EXPLORE SCHOOLS */
+/* EXPLORE SCHOOL CARD IMAGES */
 /* ================================= */
 
-.explore-header {
+.school-card {
 
-    text-align: center;
+    overflow: hidden;
 
-    padding: 80px 20px 50px;
+}
+
+
+.school-card-image {
+
+    width: 100%;
+
+    height: 210px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+.school-card-content {
+
+    padding: 25px;
+
+}
+/* ================================= */
+/* SCHOOL COMPARISON OPTION */
+/* ================================= */
+
+.compare-option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+
+.compare-option input {
+
+    width: 16px;
+
+    height: 16px;
+
+    cursor: pointer;
+
+}
+/* ================================= */
+/* SCHOOL COMPARISON */
+/* ================================= */
+
+.comparison-section {
+
+    padding: 70px 8% 90px;
 
     background: #f5f7fa;
 
 }
 
-.explore-header h1 {
+
+.comparison-table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+
+}
+
+
+.comparison-table {
+
+    width: 100%;
+
+    min-width: 700px;
+
+    border-collapse: collapse;
+
+}
+
+
+.comparison-table th,
+
+.comparison-table td {
+
+    padding: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    text-align: left;
+
+}
+
+
+.comparison-table th {
+
+    color: #111827;
+
+    background: #f8fafc;
+
+}
+
+
+.comparison-table td {
+
+    color: #64748b;
+
+}
+
+
+.comparison-table a {
+
+    color: #1d4ed8;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+.comparison-table a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+.comparison-image {
+
+    width: 100px;
+
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.comparison-table h3 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .comparison-section {
+
+        padding: 50px 5% 70px;
+
+    }
+
+}
+/* ================================= */
+/* COMPARE ACTION */
+/* ================================= */
+
+.compare-action {
+
+    text-align: center;
+
+    margin-top: 35px;
+
+}
+
+
+.compare-action .cta-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+}
+/* ================================= */
+/* COMPARISON ERROR */
+/* ================================= */
+
+.comparison-error {
+
+    max-width: 800px;
+
+    margin: 40px auto 0;
+
+    padding: 18px 25px;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    color: #9a3412;
+
+    font-weight: 600;
+
+}
+.compare-instruction {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #64748b;
+
+}
+/* ================================= */
+/* SCHOOL PROFILE IMAGE */
+/* ================================= */
+
+.profile-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.profile-school-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: 380px;
+
+    object-fit: cover;
+
+}
+
+
+.profile-hero-content {
+
+    padding: 50px 8%;
+
+    background: white;
+
+}
+
+
+.profile-hero-content h1 {
 
     font-size: 42px;
 
@@ -832,630 +2144,149 @@ nav a {
 
 }
 
-.explore-header p {
 
-    color: #666;
+.profile-hero-content p {
 
-}
+    color: #64748b;
 
-
-.eyebrow {
-
-    color: #1d4ed8;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    font-size: 13px;
-
-}
-
-
-.school-filters {
-
-    max-width: 1150px;
-
-    margin: -20px auto 50px;
-
-    padding: 25px;
-
-    background: white;
-
-    border-radius: 12px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
-}
-
-
-.school-filters form {
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr 1fr auto;
-
-    gap: 12px;
-
-}
-
-
-.school-filters input,
-
-.school-filters select {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 8px;
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    background: white;
-
-}
-
-
-.school-filters input:focus,
-
-.school-filters select:focus {
-
-    outline: none;
-
-    border-color: #1d4ed8;
-
-}
-
-
-.school-filters button {
-
-    padding: 14px 22px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #1d4ed8;
-
-    color: white;
-
-    font-family: inherit;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    white-space: nowrap;
-
-}
-
-
-.school-filters button:hover {
-
-    background: #163fa8;
-
-}
-
-
-.explore-schools {
-
-    padding: 20px 8% 80px;
-
-}
-
-
-@media (max-width: 900px) {
-
-    .school-filters form {
-
-        grid-template-columns: 1fr 1fr;
-
-    }
+    font-size: 17px;
 
 }
 
 
 @media (max-width: 600px) {
 
-    .school-filters form {
+    .profile-school-image {
 
-        grid-template-columns: 1fr;
+        height: 250px;
+
+    }
+
+
+    .profile-hero-content h1 {
+
+        font-size: 32px;
 
     }
 
 }
-/* ========================= */
-/* CATEGORY SECTIONS */
-/* ========================= */
+/* ================================= */
+/* SCHOOL PROFILE DETAILS */
+/* ================================= */
 
-.categories,
-.sports-preview,
-.competitions,
-.careers,
-.why-us {
+.profile-detail-section {
 
-    padding: 90px 8%;
+    margin-top: 35px;
 
-    background: white;
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e7eb;
 
 }
 
 
-/* CATEGORY GRID */
+.profile-detail-section h2 {
 
-.category-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 25px;
-
-}
-
-
-/* CATEGORY CARD */
-
-.category-card {
-
-    padding: 30px;
-
-    background: #f8fafc;
-
-    border-radius: 14px;
-
-    border: 1px solid #e5e7eb;
-
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-
-}
-
-
-.category-card:hover {
-
-    transform: translateY(-6px);
-
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-
-}
-
-
-.category-card h3 {
-
-    font-size: 20px;
+    font-size: 24px;
 
     margin-bottom: 12px;
 
 }
 
 
-.category-card p {
+.profile-detail-section p {
 
-    color: #666;
-
-    line-height: 1.7;
-
-    margin-bottom: 18px;
-
-}
-
-
-.category-card a {
-
-    color: #1d4ed8;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-}
-
-
-.category-card a:hover {
-
-    text-decoration: underline;
-
-}
-/* ========================= */
-/* RESPONSIVE DESIGN */
-/* ========================= */
-
-
-/* TABLETS */
-
-@media (max-width: 900px) {
-
-
-    /* NAVIGATION */
-
-    .navbar {
-
-        padding: 20px 5%;
-
-    }
-
-
-    .navbar nav ul {
-
-        gap: 15px;
-
-    }
-
-
-    .navbar nav ul li a {
-
-        font-size: 14px;
-
-    }
-
-
-    /* STATISTICS */
-
-    .stats {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    /* SCHOOL CARDS */
-
-    .school-grid {
-
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    }
-
-
-    /* CATEGORY CARDS */
-
-    .category-grid {
-
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    }
-
-
-}
-
-
-/* MOBILE PHONES */
-
-@media (max-width: 600px) {
-
-
-    /* NAVIGATION */
-
-    .navbar {
-
-        flex-direction: column;
-
-        gap: 20px;
-
-        padding: 20px 5%;
-
-    }
-
-
-    .navbar nav ul {
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 15px;
-
-    }
-
-
-    .navbar nav ul li a {
-
-        font-size: 13px;
-
-    }
-
-
-    /* HERO */
-
-    .hero {
-
-        padding: 80px 5%;
-
-    }
-
-
-    .hero-content h1 {
-
-        font-size: 36px;
-
-    }
-
-
-    .hero-content p {
-
-        font-size: 15px;
-
-    }
-
-
-    /* STATISTICS */
-
-    .stats {
-
-        grid-template-columns: 1fr;
-
-        padding: 40px 5%;
-
-    }
-
-
-    /* SCHOOL CARDS */
-
-    .school-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    /* CATEGORY CARDS */
-
-    .category-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    /* SECTION HEADINGS */
-
-    .section-heading h2 {
-
-        font-size: 30px;
-
-    }
-
-
-    /* SECTIONS */
-
-    .featured-schools,
-    .categories,
-    .sports-preview,
-    .competitions,
-    .careers,
-    .why-us {
-
-        padding: 60px 5%;
-
-    }
-
-/* FOOTER ON MOBILE */
-
-.footer-content {
-
-    grid-template-columns: 1fr;
-
-    text-align: center;
-
-}
-
-}
-/* ========================= */
-/* CALL TO ACTION */
-/* ========================= */
-
-.cta {
-
-    padding: 80px 8%;
-
-    background: #1d4ed8;
-
-    text-align: center;
-
-}
-
-
-.cta-content {
-
-    max-width: 700px;
-
-    margin: 0 auto;
-
-}
-
-
-.cta h2 {
-
-    color: white;
-
-    font-size: 38px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.cta p {
-
-    color: #dbeafe;
-
-    margin-bottom: 30px;
-
-}
-
-
-.cta-button {
-
-    display: inline-block;
-
-    padding: 14px 28px;
-
-    background: white;
-
-    color: #1d4ed8;
-
-    text-decoration: none;
-
-    border-radius: 8px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-
-}
-
-
-.cta-button:hover {
-
-    transform: translateY(-3px);
-
-}
-
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-footer {
-
-    padding: 60px 8% 25px;
-
-    background: #111827;
-
-    color: white;
-
-}
-
-
-.footer-content {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 40px;
-
-}
-
-
-.footer-content h3 {
-
-    font-size: 24px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.footer-content h4 {
-
-    margin-bottom: 15px;
-
-}
-
-
-.footer-content p {
-
-    color: #cbd5e1;
+    color: #64748b;
 
     line-height: 1.8;
 
 }
+/* ================================= */
+/* SCHOOL RANKINGS */
+/* ================================= */
 
-
-.footer-content a {
-
-    color: #cbd5e1;
-
-    text-decoration: none;
-
-}
-
-
-.footer-content a:hover {
-
-    color: white;
-
-}
-
-
-footer hr {
-
-    margin: 40px 0 20px;
-
-    border: none;
-
-    border-top: 1px solid #374151;
-
-}
-
-
-.copyright {
+.ranking-header {
 
     text-align: center;
 
-    color: #9ca3af;
-
-    font-size: 14px;
-
-}
-/* ================================= */
-/* TOP SCHOOLS PAGE */
-/* ================================= */
-
-.top-schools-hero {
-
-    padding: 100px 8%;
-
-    text-align: center;
-
-    background: #f5f7fa;
+    padding: 70px 20px 40px;
 
 }
 
 
-.top-schools-hero h1 {
+.ranking-header h1 {
 
-    font-size: 48px;
+    font-size: 42px;
 
     margin: 15px 0;
 
 }
 
 
-.top-schools-hero p {
+.ranking-header p {
 
-    color: #666;
-
-    font-size: 18px;
+    color: #64748b;
 
 }
 
+
+/* RANKING FILTERS */
+
+.ranking-filters {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin: 20px auto 50px;
+
+}
+
+
+.ranking-filters a {
+
+    padding: 12px 24px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    border: 1px solid #e2e8f0;
+
+}
+
+
+.ranking-filters a.active {
+
+    font-weight: 700;
+
+}
+
+
+/* RANKING LIST */
 
 .ranking-section {
 
-    padding: 80px 8%;
+    max-width: 1100px;
 
-    background: #f5f7fa;
+    margin: auto;
+
+    padding: 0 20px 70px;
 
 }
 
 
-.ranking-grid {
+.ranking-list {
 
-    width: 100%;
+    display: flex;
 
-    display: grid;
+    flex-direction: column;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 25px;
+    gap: 20px;
 
 }
 
@@ -1466,229 +2297,239 @@ footer hr {
 
     align-items: center;
 
-    gap: 20px;
+    gap: 25px;
 
-    padding: 25px;
+    padding: 20px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e2e8f0;
 
     background: white;
 
-    border-radius: 14px;
+}
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+.ranking-position {
+
+    width: 60px;
+
+    text-align: center;
+
+    font-size: 25px;
+
+    font-weight: 800;
 
 }
 
 
-.rank-number {
+.ranking-image {
 
-    font-size: 28px;
+    width: 130px;
 
-    font-weight: bold;
+    height: 100px;
 
-    color: #1d4ed8;
+    object-fit: cover;
+
+    border-radius: 12px;
 
 }
 
 
-.ranking-content h3 {
+.ranking-content {
 
-    margin-bottom: 8px;
+    flex: 1;
+
+}
+
+
+.ranking-content h2 {
+
+    margin: 8px 0;
 
 }
 
 
 .ranking-content p {
 
-    color: #666;
-
-    margin-bottom: 10px;
+    color: #64748b;
 
 }
 
 
-.ranking-content span {
+.ranking-score {
 
-    color: #1d4ed8;
+    display: inline-flex;
 
-    font-size: 13px;
+    align-items: center;
 
-    font-weight: bold;
+    gap: 10px;
 
-}
-
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-    .ranking-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .top-schools-hero h1 {
-
-        font-size: 36px;
-
-    }
-
-}
-/* ================================= */
-/* SPORTS PAGE */
-/* ================================= */
-
-.sports-hero {
-
-    padding: 100px 8%;
-
-    text-align: center;
-
-    background: #f5f7fa;
+    margin: 12px 0;
 
 }
 
 
-.sports-hero h1 {
+.ranking-score strong {
 
-    font-size: 48px;
-
-    margin: 15px 0;
+    font-size: 24px;
 
 }
 
 
-.sports-hero p {
+.ranking-score span {
 
-    color: #666;
-
-    font-size: 18px;
+    color: #64748b;
 
 }
 
 
-.sports-section {
+.ranking-profile-link {
 
-    padding: 80px 8%;
-
-    background: #f5f7fa;
-
-}
-
-
-.sports-grid {
-
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 25px;
-
-}
-
-
-.sport-card {
-
-    padding: 30px;
-
-    background: white;
-
-    border-radius: 14px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-
-}
-
-
-.sport-card:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-
-}
-
-
-.sport-icon {
-
-    font-size: 45px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.sport-card h3 {
-
-    font-size: 22px;
-
-    margin-bottom: 12px;
-
-}
-
-
-.sport-card p {
-
-    color: #666;
-
-    line-height: 1.7;
-
-    margin-bottom: 20px;
-
-}
-
-
-.sport-card a {
-
-    color: #1d4ed8;
+    display: inline-block;
 
     text-decoration: none;
 
-    font-weight: bold;
+    font-weight: 600;
 
 }
 
 
-/* MOBILE SPORTS LAYOUT */
+@media (max-width: 700px) {
 
-@media (max-width: 900px) {
+    .ranking-card {
 
-    .sports-grid {
+        align-items: flex-start;
 
-        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .ranking-image {
+
+        width: 100px;
+
+        height: 80px;
+
+    }
+
+
+    .ranking-position {
+
+        width: 40px;
+
+    }
+
+}
+/* ================================= */
+/* SCHOOL COMPETITIONS */
+/* ================================= */
+
+.school-competitions {
+
+    max-width: 1100px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+
+}
+
+
+.competition-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.competition-card {
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e2e8f0;
+
+    background: white;
+
+}
+
+
+.competition-card p {
+
+    color: #64748b;
+
+    line-height: 1.6;
+
+}
+
+
+.competition-card strong {
+
+    color: #1e293b;
+
+}
+
+
+@media (max-width: 800px) {
+
+    .competition-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
 
     }
 
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
-    .sports-grid {
+    .competition-grid {
 
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .sports-hero h1 {
-
-        font-size: 36px;
+        grid-template-columns:
+            1fr;
 
     }
 
 }
+/* ================================= */
+/* SCHOOL FACILITIES */
+/* ================================= */
 
-/* CSS CONNECTION TEST */
+.school-facilities {
 
-.competitions-hero {
+    max-width: 1100px;
 
-    border: 10px solid red !important;
+    margin: 50px auto;
+
+    padding: 20px;
+
+}
+
+
+.facilities-content {
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    line-height: 1.8;
+
+}
+
+
+.facilities-content p {
+
+    margin: 0;
 
 }

@@ -1,258 +1,208 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Sports Schools | Imbuto Edu
+{% endblock %}
 
-<head>
+{% block content %}
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Sports Schools | Imbuto Edu</title>
-
-    <link rel="stylesheet"
-          href="{% static 'css/styles.css' %}">
-
-</head>
-
-<body>
-
-
-<header class="navbar">
-
-    <div class="logo">
-
-        <h2>Imbuto Edu</h2>
-
-    </div>
-
-
-    <nav>
-
-        <a href="{% url 'home' %}">Home</a>
-
-        <a href="{% url 'schools_page' %}">Schools</a>
-
-        <a href="{% url 'top_schools' %}">Rankings</a>
-
-        <a href="{% url 'sports' %}">Sports</a>
-
-        <a href="{% url 'competitions' %}">Competitions</a>
-
-        <a href="#">Careers</a>
-
-    </nav>
-
-</header>
-
-
-<section class="sports-hero">
+<section class="sports-header">
 
     <p class="eyebrow">
-
         TALENT & EXCELLENCE
-
     </p>
 
-
     <h1>
-
-        Sports Schools in Rwanda
-
+        Sports in Rwanda's Schools
     </h1>
 
-
     <p>
-
-        Discover schools developing Rwanda's next generation
-        of talented athletes.
-
+        Discover schools offering sports opportunities
+        and explore different sporting disciplines.
     </p>
 
 </section>
 
 
-<section class="sports-section">
+<!-- ==========================================
+     SPORT FILTER
+========================================== -->
 
+<section class="sports-filter">
+
+    <form method="GET">
+
+        <label for="sport">
+            Explore a sport
+        </label>
+
+        <select
+            name="sport"
+            id="sport"
+        >
+
+            <option value="">
+                All Sports
+            </option>
+
+
+            {% for sport in sports %}
+
+                <option
+                    value="{{ sport.id }}"
+                    {% if selected_sport == sport.id|stringformat:"s" %}
+                        selected
+                    {% endif %}
+                >
+
+                    {{ sport.name }}
+
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <button type="submit">
+
+            Find Schools
+
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ==========================================
+     SPORTS LIST
+========================================== -->
+
+<section class="sports-schools">
 
     <div class="section-heading">
 
         <span class="section-label">
-
-            EXPLORE SPORTS
-
+            SPORTS OPPORTUNITIES
         </span>
 
-
         <h2>
-
-            Find Your Sporting Passion
-
+            Schools & Sports
         </h2>
-
-
-        <p>
-
-            Explore schools and opportunities across different sports.
-
-        </p>
 
     </div>
 
 
-    <div class="sports-grid">
+    <div class="school-grid">
 
 
-        <div class="sport-card">
+        {% for item in school_sports %}
 
-            <div class="sport-icon">
 
-                🏀
+        <article class="school-card">
+
+
+            {% if item.school.image %}
+
+                <img
+                    src="{{ item.school.image.url }}"
+                    alt="{{ item.school.name }}"
+                    class="school-card-image"
+                >
+
+            {% endif %}
+
+
+            <div class="school-card-content">
+
+
+                <span class="school-badge">
+
+                    {{ item.sport.name }}
+
+                </span>
+
+
+                <h3>
+
+                    {{ item.school.name }}
+
+                </h3>
+
+
+                <p class="school-location">
+
+                    📍 {{ item.school.district }},
+                    {{ item.school.province }}
+
+                </p>
+
+
+                {% if item.description %}
+
+                    <p class="school-description">
+
+                        {{ item.description|truncatewords:25 }}
+
+                    </p>
+
+                {% endif %}
+
+
+                {% if item.achievement %}
+
+                    <p class="school-description">
+
+                        <strong>
+                            Achievement:
+                        </strong>
+
+                        {{ item.achievement|truncatewords:20 }}
+
+                    </p>
+
+                {% endif %}
+
+
+                <a
+                    href="{% url 'school_detail' item.school.id %}"
+                >
+
+                    View School Profile →
+
+                </a>
+
 
             </div>
 
 
+        </article>
+
+
+        {% empty %}
+
+
+        <div class="empty-schools">
+
             <h3>
-
-                Basketball
-
+                No sports information yet
             </h3>
 
-
             <p>
-
-                Discover schools with strong basketball programs
-                and talented players.
-
+                Sports and participating schools will
+                appear here as information is added.
             </p>
-
-
-            <a href="#">
-
-                Explore Basketball →
-
-            </a>
 
         </div>
 
 
-        <div class="sport-card">
-
-            <div class="sport-icon">
-
-                ⚽
-
-            </div>
-
-
-            <h3>
-
-                Football
-
-            </h3>
-
-
-            <p>
-
-                Explore schools with successful football programs
-                across Rwanda.
-
-            </p>
-
-
-            <a href="#">
-
-                Explore Football →
-
-            </a>
-
-        </div>
-
-
-        <div class="sport-card">
-
-            <div class="sport-icon">
-
-                🏐
-
-            </div>
-
-
-            <h3>
-
-                Volleyball
-
-            </h3>
-
-
-            <p>
-
-                Discover volleyball talent and schools
-                developing future champions.
-
-            </p>
-
-
-            <a href="#">
-
-                Explore Volleyball →
-
-            </a>
-
-        </div>
-
-
-        <div class="sport-card">
-
-            <div class="sport-icon">
-
-                🏃
-
-            </div>
-
-
-            <h3>
-
-                Athletics
-
-            </h3>
-
-
-            <p>
-
-                Explore track and field opportunities
-                for talented young athletes.
-
-            </p>
-
-
-            <a href="#">
-
-                Explore Athletics →
-
-            </a>
-
-        </div>
+        {% endfor %}
 
 
     </div>
 
 </section>
 
-
-<footer>
-
-    <p>
-
-        © 2026 Imbuto Edu — Plant Your Future
-
-    </p>
-
-</footer>
-
-
-</body>
-
-</html>
+{% endblock %}
