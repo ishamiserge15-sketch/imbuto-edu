@@ -1,10 +1,27 @@
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import School
+from django.shortcuts import (
+    render,
+    get_object_or_404,
+    redirect,
+)
+
+from django.contrib.auth import (
+    authenticate,
+    login,
+    logout,
+)
+
+from django.contrib.auth.decorators import login_required
+
+from .models import (
+    School,
+    Sport,
+    SchoolSport,
+    SchoolAccount,
+)
+
 from .forms import SchoolRegistrationForm
-
-from .models import School, Sport, SchoolSport
 
 
 # ==========================================
@@ -333,3 +350,106 @@ def registration_success(request):
         request,
         "registration_success.html"
     )
+# ==========================================
+# SCHOOL LOGIN
+# ==========================================
+
+def school_login(request):
+
+    if request.user.is_authenticated:
+
+        if hasattr(request.user, "school_account"):
+            return redirect("school_dashboard")
+
+    if request.method == "POST":
+
+        email = request.POST.get("email", "").strip()
+        password = request.POST.get("password", "")
+
+        try:
+
+            school_account = SchoolAccount.objects.get(
+                email=email
+            )
+
+            if not school_account.user:
+
+                return render(
+                    request,
+                    "school_login.html",
+                    {
+                        "error":
+                        "This school account has not been activated yet."
+                    }
+                )
+
+            user = authenticate(
+                request,
+                username=school_account.user.username,
+                password=password,
+            )
+
+            if user is not None:
+
+                login(request, user)
+
+                return redirect("school_dashboard")
+
+            return render(
+                request,
+                "school_login.html",
+                {
+                    "error": "Invalid email or password."
+                }
+            )
+
+        except SchoolAccount.DoesNotExist:
+
+            return render(
+                request,
+                "school_login.html",
+                {
+                    "error": "Invalid email or password."
+                }
+            )
+
+    return render(
+        request,
+        "school_login.html"
+    )
+
+
+# ==========================================
+# SCHOOL DASHBOARD
+# ==========================================
+
+@login_required
+def school_dashboard(request):
+
+    if not hasattr(request.user, "school_account"):
+
+        logout(request)
+
+        return redirect("school_login")
+
+    school_account = request.user.school_account
+
+    return render(
+        request,
+        "school_dashboard.html",
+        {
+            "school_account": school_account,
+            "school": school_account.school,
+        }
+    )
+
+
+# ==========================================
+# SCHOOL LOGOUT
+# ==========================================
+
+def school_logout(request):
+
+    logout(request)
+
+    return redirect("school_login")    
