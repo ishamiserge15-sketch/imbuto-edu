@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registration Submitted | Imbuto Edu
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-success">
+
+    <p class="eyebrow">
+        REQUEST RECEIVED
+    </p>
+
+    <h1>
+        Thank You
+    </h1>
+
+    <p>
+        Your school registration request has been received.
+    </p>
+
+    <p>
+        Our team will review the information before the school
+        is approved for participation on Imbuto Edu.
+    </p>
+
+    <a
+        href="{% url 'home' %}"
+        class="cta-button"
+    >
+        Return Home
+    </a>
+
+</section>
+
+{% endblock %}

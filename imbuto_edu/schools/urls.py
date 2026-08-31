@@ -62,3 +62,31 @@ urlpatterns = [
     ),
 
 ]
+path(
+    "register-school/",
+    views.register_school,
+    name="register_school"
+),
+
+path(
+    "registration-success/",
+    views.registration_success,
+    name="registration_success"
+),
+path(
+    "school-login/",
+    views.school_login,
+    name="school_login"
+),
+
+path(
+    "school-dashboard/",
+    views.school_dashboard,
+    name="school_dashboard"
+),
+
+path(
+    "school-logout/",
+    views.school_logout,
+    name="school_logout"
+),

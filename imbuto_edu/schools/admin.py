@@ -8,6 +8,9 @@ from .models import (
     SchoolCompetition,
     Career,
     TVETProgram,
+    SchoolAccount,
+    SchoolVerification,
+    SchoolRegistrationRequest,
 )
 
 
@@ -167,4 +170,83 @@ class TVETProgramAdmin(admin.ModelAdmin):
 
     list_filter = (
         "category",
+    )
+    # ==========================================
+# SCHOOL ACCOUNT ADMIN
+# ==========================================
+
+@admin.register(SchoolAccount)
+class SchoolAccountAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "school",
+        "email",
+        "phone",
+        "status",
+        "created_at",
+    )
+
+    search_fields = (
+        "school__name",
+        "email",
+        "phone",
+    )
+
+    list_filter = (
+        "status",
+    )
+    # ==========================================
+# SCHOOL VERIFICATION ADMIN
+# ==========================================
+
+@admin.register(SchoolVerification)
+class SchoolVerificationAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "school",
+        "status",
+        "submitted_at",
+        "reviewed_at",
+    )
+
+    search_fields = (
+        "school__name",
+    )
+
+    list_filter = (
+        "status",
+    )
+    # ==========================================
+# SCHOOL REGISTRATION REQUEST ADMIN
+# ==========================================
+
+@admin.register(SchoolRegistrationRequest)
+class SchoolRegistrationRequestAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "school_name",
+        "district",
+        "contact_person",
+        "email",
+        "status",
+        "created_at",
+    )
+
+    search_fields = (
+        "school_name",
+        "district",
+        "contact_person",
+        "email",
+        "phone",
+    )
+
+    list_filter = (
+        "status",
+        "district",
+        "province",
+    )
+
+    readonly_fields = (
+        "created_at",
+        "reviewed_at",
     )

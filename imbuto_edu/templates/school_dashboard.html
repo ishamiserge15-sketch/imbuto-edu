@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}
+School Dashboard | Imbuto Edu
+{% endblock %}
+
+{% block content %}
+
+<section class="school-dashboard">
+
+    <div class="dashboard-header">
+
+        <p class="eyebrow">
+            SCHOOL PORTAL
+        </p>
+
+        <h1>
+            Welcome, {{ school.name }}
+        </h1>
+
+        <p>
+            Manage your school's presence on Imbuto Edu.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <a href="#" class="dashboard-card">
+
+            <h2>
+                🏫 School Profile
+            </h2>
+
+            <p>
+                Manage your school's public information.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="dashboard-card">
+
+            <h2>
+                📰 Activities
+            </h2>
+
+            <p>
+                Publish school activities and achievements.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="dashboard-card">
+
+            <h2>
+                📸 Gallery
+            </h2>
+
+            <p>
+                Manage your school's public photos.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="dashboard-card">
+
+            <h2>
+                📅 Events
+            </h2>
+
+            <p>
+                Share upcoming school events.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="dashboard-card">
+
+            <h2>
+                🎓 Applications
+            </h2>
+
+            <p>
+                Manage official application information.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="dashboard-card">
+
+            <h2>
+                📢 Opportunities
+            </h2>
+
+            <p>
+                Publish approved opportunities for students.
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-footer">
+
+        <a
+            href="{% url 'school_logout' %}"
+            class="cta-button"
+        >
+            Log Out
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

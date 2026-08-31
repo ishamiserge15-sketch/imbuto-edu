@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register Your School | Imbuto Edu
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-page">
+
+    <div class="registration-header">
+
+        <p class="eyebrow">
+            JOIN IMBUTO EDU
+        </p>
+
+        <h1>
+            Register Your School
+        </h1>
+
+        <p>
+            Request an official school profile on Imbuto Edu.
+            Your information will be reviewed before publication.
+        </p>
+
+    </div>
+
+
+    <div class="registration-card">
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <h2>
+                School Information
+            </h2>
+
+            <div class="registration-form">
+
+                {% for field in form %}
+
+                    <div class="form-field">
+
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+
+                        {{ field }}
+
+                        {% if field.help_text %}
+
+                            <small>
+                                {{ field.help_text }}
+                            </small>
+
+                        {% endif %}
+
+                        {% for error in field.errors %}
+
+                            <p class="form-error">
+                                {{ error }}
+                            </p>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <div class="registration-notice">
+
+                <strong>
+                    Important
+                </strong>
+
+                <p>
+                    Submitting this form does not immediately create
+                    a verified school account. Imbuto Edu will review
+                    the request first.
+                </p>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="cta-button"
+            >
+                Submit Registration Request
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # ==========================================
 # SCHOOL MODEL
@@ -418,4 +418,169 @@ class TVETProgram(models.Model):
 
     def __str__(self):
 
-        return self.name        
+        return self.name 
+# ==========================================
+# SCHOOL ACCOUNT
+# ==========================================
+
+class SchoolAccount(models.Model):
+
+    STATUS_CHOICES = [
+        ("pending", "Pending Verification"),
+        ("verified", "Verified"),
+        ("rejected", "Rejected"),
+        ("suspended", "Suspended"),
+    ]
+
+    school = models.OneToOneField(
+        School,
+        on_delete=models.CASCADE,
+        related_name="account",
+    )
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="school_account",
+    )
+
+    email = models.EmailField(
+        unique=True
+    )
+
+
+    phone = models.CharField(
+        max_length=30,
+        blank=True
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="pending"
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
+    def __str__(self):
+        return f"{self.school.name} Account"   
+           
+    # ==========================================
+# SCHOOL VERIFICATION
+# ==========================================
+
+class SchoolVerification(models.Model):
+
+    STATUS_CHOICES = [
+        ("pending", "Pending Review"),
+        ("approved", "Approved"),
+        ("rejected", "Rejected"),
+        ("needs_update", "Needs Update"),
+    ]
+
+    school = models.OneToOneField(
+        School,
+        on_delete=models.CASCADE,
+        related_name="verification",
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="pending",
+    )
+
+    submitted_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    reviewed_at = models.DateTimeField(
+        null=True,
+        blank=True,
+    )
+
+    reviewer_notes = models.TextField(
+        blank=True,
+    )
+
+    def __str__(self):
+        return f"{self.school.name} Verification"    
+# ==========================================
+# SCHOOL REGISTRATION REQUEST
+# ==========================================
+
+class SchoolRegistrationRequest(models.Model):
+
+    STATUS_CHOICES = [
+        ("pending", "Pending Review"),
+        ("approved", "Approved"),
+        ("rejected", "Rejected"),
+    ]
+
+    school_name = models.CharField(
+        max_length=200
+    )
+
+    district = models.CharField(
+        max_length=100
+    )
+
+    province = models.CharField(
+        max_length=100
+    )
+
+    school_type = models.CharField(
+        max_length=100
+    )
+
+    ownership = models.CharField(
+        max_length=100
+    )
+
+    contact_person = models.CharField(
+        max_length=150
+    )
+
+    email = models.EmailField()
+
+    phone = models.CharField(
+        max_length=30
+    )
+
+    website = models.URLField(
+        blank=True
+    )
+
+    message = models.TextField(
+        blank=True
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="pending",
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    reviewed_at = models.DateTimeField(
+        null=True,
+        blank=True
+    )
+
+    admin_notes = models.TextField(
+        blank=True
+    )
+
+    def __str__(self):
+        return f"{self.school_name} - Registration Request"    

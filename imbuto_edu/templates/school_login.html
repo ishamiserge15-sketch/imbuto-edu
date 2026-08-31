@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+School Login | Imbuto Edu
+{% endblock %}
+
+{% block content %}
+
+<section class="school-login-page">
+
+    <div class="school-login-card">
+
+        <p class="eyebrow">
+            SCHOOL PORTAL
+        </p>
+
+        <h1>
+            School Login
+        </h1>
+
+        <p>
+            Sign in to manage your school's Imbuto Edu profile.
+        </p>
+
+        {% if error %}
+
+            <div class="form-error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-field">
+
+                <label for="email">
+                    School Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-field">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="cta-button"
+            >
+                Sign In
+            </button>
+
+        </form>
+
+        <p>
+            Is your school not registered yet?
+            <a href="{% url 'register_school' %}">
+                Register your school
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

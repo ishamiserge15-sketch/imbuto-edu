@@ -1,5 +1,8 @@
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+
+from .models import School
+from .forms import SchoolRegistrationForm
 
 from .models import School, Sport, SchoolSport
 
@@ -290,4 +293,43 @@ def careers(request):
     return render(
         request,
         "careers.html"
+    )
+# ==========================================
+# SCHOOL REGISTRATION
+# ==========================================
+
+def register_school(request):
+
+    if request.method == "POST":
+
+        form = SchoolRegistrationForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect("registration_success")
+
+    else:
+
+        form = SchoolRegistrationForm()
+
+    return render(
+        request,
+        "register_school.html",
+        {
+            "form": form
+        }
+    )
+
+
+# ==========================================
+# REGISTRATION SUCCESS
+# ==========================================
+
+def registration_success(request):
+
+    return render(
+        request,
+        "registration_success.html"
     )
