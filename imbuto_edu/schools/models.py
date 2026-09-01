@@ -583,4 +583,47 @@ class SchoolRegistrationRequest(models.Model):
     )
 
     def __str__(self):
-        return f"{self.school_name} - Registration Request"    
+        return f"{self.school_name} - Registration Request"   
+# ==========================================
+# SCHOOL ACTIVITY
+# ==========================================
+
+class SchoolActivity(models.Model):
+
+    school = models.ForeignKey(
+        School,
+        on_delete=models.CASCADE,
+        related_name="activities",
+    )
+
+    title = models.CharField(
+        max_length=200
+    )
+
+    description = models.TextField()
+
+    image = models.ImageField(
+        upload_to="school_activities/",
+        blank=True,
+        null=True,
+    )
+
+    activity_date = models.DateField(
+        blank=True,
+        null=True,
+    )
+
+    is_published = models.BooleanField(
+        default=False
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
+    def __str__(self):
+        return f"{self.school.name} - {self.title}"         

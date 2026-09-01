@@ -11,6 +11,7 @@ from .models import (
     SchoolAccount,
     SchoolVerification,
     SchoolRegistrationRequest,
+    SchoolActivity,
 )
 
 
@@ -250,3 +251,33 @@ class SchoolRegistrationRequestAdmin(admin.ModelAdmin):
         "created_at",
         "reviewed_at",
     )
+# ==========================================
+# SCHOOL ACTIVITY ADMIN
+# ==========================================
+
+@admin.register(SchoolActivity)
+class SchoolActivityAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "title",
+        "school",
+        "activity_date",
+        "is_published",
+        "created_at",
+    )
+
+    search_fields = (
+        "title",
+        "school__name",
+        "description",
+    )
+
+    list_filter = (
+        "is_published",
+        "activity_date",
+        "school",
+    )
+
+    ordering = (
+        "-activity_date",
+    )    
